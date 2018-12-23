@@ -6,10 +6,10 @@ class ArticleContainer extends Component {
     constructor(props) {
         super(props)
         this.state = ({
-            articles: null
+            articles: null,
+            currentArticle: 0
         })
     }
-
 
     async componentDidMount() {
         const data = await fetchData()
@@ -18,10 +18,17 @@ class ArticleContainer extends Component {
         })
     }
 
+    goToNextPage = () => {
+        this.props.history.push(`/someNextPage`);
+    };
+
     render() {
-        const { articles } = this.state;
+        const { articles, currentArticle } = this.state;
         return (
-            <div><Article articles={articles} /></div>
+            <Article
+                articles={articles}
+                currentArticleIndex={currentArticle}
+                goToNextPage={this.goToNextPage} />
         );
     }
 }
