@@ -1,14 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Introduction extends Component {
-    render() {
-        return (
-            <div>
-                <h1>EndPage</h1>
-                <p>Homepage or Conclusion</p>
-            </div>
-        );
+const EndPage = ({ content, currentStepIndex }) => {
+    let code;
+    if (content) {
+        const currentStep = content[currentStepIndex];
+        code = <div key={currentStep.id}>
+            <h1>{currentStep.title}</h1>
+        </div>;
     }
+
+    return content && (
+        <div>
+            {code}
+        </div>
+    );
 }
 
-export default Introduction;
+EndPage.propTypes = {
+    article: PropTypes.shape({}),
+};
+
+export default EndPage;
