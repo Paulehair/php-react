@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Article = ({ articles, goToNextPage, currentArticleIndex }) => {
+const Article = ({ articles, goToFirstOption, goToSecondOption, currentArticleIndex, firstSlug, secondSlug }) => {
     let code;
     if (articles) {
         const currentArticle = articles[currentArticleIndex];
@@ -10,14 +10,10 @@ const Article = ({ articles, goToNextPage, currentArticleIndex }) => {
             <h4>{currentArticle.subtitle}</h4>
             <p>{currentArticle.firstText}</p>
             <p>{currentArticle.secondText}</p>
-            <button onClick={goToNextPage}>{currentArticle.firstChoice}</button>
-            {/* 
-                A MEDITER
-                createRef pour un input qui serait de type invisible 
-                avec comme value ce qu'il faut push dans l'history en bdd
-                pour aller à la bonne page suivante ??? 
-                */}
-            <button>{currentArticle.secondChoice}</button>
+            <button onClick={goToFirstOption}>{currentArticle.firstChoice}</button>
+            <input ref={firstSlug} type="hidden" defaultValue={currentArticle.firstSlug} />
+            <button onClick={goToSecondOption}>{currentArticle.secondChoice}</button>
+            <input ref={secondSlug} type="hidden" defaultValue={currentArticle.secondSlug} />
         </div>;
     }
 

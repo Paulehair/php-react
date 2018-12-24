@@ -7,3 +7,13 @@ export function fetchData() {
         .then(data => data.json())
 
 }
+
+export function fetchEndpoint() {
+    const requestConfig = {
+        method: "GET"
+    }
+    const url = "//localhost:8000/endpoint.php";
+    return fetch(url, requestConfig)
+        .then(data => data.json())
+
+}
