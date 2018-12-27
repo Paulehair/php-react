@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 import EndPage from './EndPage';
 import { fetchEndpoint } from '../../helpers/api';
 

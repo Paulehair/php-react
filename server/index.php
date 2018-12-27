@@ -8,9 +8,8 @@ $sql = "SELECT
       `firstText`, 
       `secondText`,
       `firstChoice`,
-      `firstSlug`,
-      `secondChoice`,
-      `secondSlug`
+      `slug`,
+      `secondChoice`
         FROM 
           `article` 
         ";

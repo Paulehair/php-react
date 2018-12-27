@@ -8,7 +8,9 @@ import NotFound from '../views/NotFound/NotFound';
 const Router = (setIndex) => (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={Introduction} />
+            <Route exact path="/"
+                render={(routeProps) => (<Introduction {...routeProps} setIndex={setIndex} />)}
+            />
             <Route path="/articles"
                 render={(routeProps) => (<Article {...routeProps} setIndex={setIndex} />)}
             />

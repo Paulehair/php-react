@@ -7,12 +7,7 @@ class App extends Component {
     currentIndex: null,
   };
 
-  //
   setIndex = index => {
-    //declare a copy of state
-    const currentIndex = { ...this.state.currentIndex };
-    //create new instance of copy of state
-    currentIndex[`index${Date.now()}`] = index;
     this.setState({
       currentIndex: index,
     })
