@@ -13,8 +13,8 @@ class Introduction extends Component {
 
     changeCurrentStep = index => {
         let indexToNumber = parseInt(index, 10);
-        this.props.setIndex.setIndex(indexToNumber);
-        let slug = 'articles';
+        this.props.dataFromApp.setIndex(indexToNumber);
+        let slug = 'endpage';
         this.props.history.push(`/` + slug);
     }
 

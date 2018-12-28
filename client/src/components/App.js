@@ -19,9 +19,10 @@ class App extends Component {
   };
 
   render() {
+    const { currentIndex } = this.state;
     return (
       <div className="App">
-        <Router setIndex={this.setIndex} />
+        <Router currentIndex={currentIndex} setIndex={this.setIndex} />
       </div>
     );
   }

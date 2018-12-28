@@ -5,17 +5,17 @@ import Article from '../views/Article/ArticleContainer';
 import EndPage from '../views/EndPage/EndPageContainer';
 import NotFound from '../views/NotFound/NotFound';
 
-const Router = (setIndex) => (
+const Router = (props) => (
     <BrowserRouter>
         <Switch>
             <Route exact path="/"
-                render={(routeProps) => (<Introduction {...routeProps} setIndex={setIndex} />)}
+                render={(routeProps) => (<Introduction {...routeProps} dataFromApp={props} />)}
             />
             <Route path="/articles"
-                render={(routeProps) => (<Article {...routeProps} setIndex={setIndex} />)}
+                render={(routeProps) => (<Article {...routeProps} dataFromApp={props} />)}
             />
-            <Route path="/homepage"
-                render={(routeProps) => (<EndPage {...routeProps} setIndex={setIndex} />)}
+            <Route path="/endpage"
+                render={(routeProps) => (<EndPage {...routeProps} dataFromApp={props} />)}
             />
             <Route component={NotFound} />
         </Switch>
