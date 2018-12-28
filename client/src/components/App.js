@@ -3,9 +3,13 @@ import '../style/App.css';
 import Router from './Router';
 
 class App extends Component {
-  state = {
-    currentIndex: null,
-  };
+  constructor(props) {
+    super(props)
+    this.state = ({
+      currentIndex: null,
+    })
+  }
+
 
   setIndex = index => {
     this.setState({

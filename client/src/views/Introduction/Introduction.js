@@ -13,15 +13,13 @@ class Introduction extends Component {
 
     changeCurrentStep = index => {
         let indexToNumber = parseInt(index, 10);
-        this.setState({
-            currentStep: indexToNumber,
-        })
+        this.props.setIndex.setIndex(indexToNumber);
+        let slug = 'articles';
+        this.props.history.push(`/` + slug);
     }
 
-    updateCurrentIndex = index => {
-        this.changeCurrentStep(index);
-        const currentStep = this.state.currentStep;
-        this.props.setIndex.setIndex(currentStep);
+    updateCurrentIndex = () => {
+
 
         //let slug = 'articles';
         //this.props.history.push(`/` + slug);
@@ -31,9 +29,9 @@ class Introduction extends Component {
         return (
             <div>
                 <h1>Introduction</h1>
-                <button onClick={() => this.updateCurrentIndex(this.firstIndex.current.value)}>Click me</button>
+                <button onClick={() => this.changeCurrentStep(this.firstIndex.current.value)}>Click me</button>
                 <input ref={this.firstIndex} type="hidden" defaultValue={0} />
-                <button onClick={() => this.updateCurrentIndex(this.secondIndex.current.value)}>No, click me</button>
+                <button onClick={() => this.changeCurrentStep(this.secondIndex.current.value)}>No, click me</button>
                 <input ref={this.secondIndex} type="hidden" defaultValue={1} />
             </div>
         );
