@@ -1,4 +1,5 @@
 import React, { Component, createRef } from 'react';
+import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
 class Introduction extends Component {
     constructor(props) {
@@ -12,17 +13,9 @@ class Introduction extends Component {
     secondIndex = createRef();
 
     changeCurrentStep = index => {
-        let indexToNumber = parseInt(index, 10);
-        this.props.dataFromApp.setIndex(indexToNumber);
-        let slug = 'endpage';
-        this.props.history.push(`/` + slug);
-    }
-
-    updateCurrentIndex = () => {
-
-
-        //let slug = 'articles';
-        //this.props.history.push(`/` + slug);
+        let indexToNumber = parseToNumber(index);
+        setIndex(this, indexToNumber);
+        pushHistory(this, 'endpage');
     }
 
     render() {

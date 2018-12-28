@@ -7,7 +7,7 @@ class ArticleContainer extends Component {
         super(props)
         this.state = ({
             articles: null,
-            currentArticle: 0,
+            currentArticle: this.props.dataFromApp.currentIndex,
         })
     }
 
