@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = ({
-      currentIndex: null,
+      currentIndex: 0,
     })
   }
 
@@ -15,7 +15,6 @@ class App extends Component {
     this.setState({
       currentIndex: index,
     })
-    console.log('Index Set');
   };
 
   render() {

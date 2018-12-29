@@ -17,3 +17,13 @@ export function fetchEndpoint() {
         .then(data => data.json())
 
 }
+
+export function fetchGlobalPart() {
+    const requestConfig = {
+        method: "GET"
+    }
+    const url = "//localhost:8000/globalpart.php";
+    return fetch(url, requestConfig)
+        .then(data => data.json())
+
+}

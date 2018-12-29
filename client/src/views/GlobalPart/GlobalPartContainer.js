@@ -1,9 +1,9 @@
 import React, { Component, createRef } from 'react';
-import EndPage from './EndPage';
-import { fetchEndpoint } from '../../helpers/api';
+import GlobalPart from './GlobalPartContainer';
+import { fetchGlobalPart } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
-class EndPageContainer extends Component {
+class GlobalPartContainer extends Component {
     constructor(props) {
         super(props)
         this.state = ({
@@ -17,7 +17,7 @@ class EndPageContainer extends Component {
     indexToGoSecond = createRef();
 
     async componentDidMount() {
-        const data = await fetchEndpoint()
+        const data = await fetchGlobalPart()
         this.setState({
             content: data,
         })
@@ -25,15 +25,14 @@ class EndPageContainer extends Component {
 
     changeCurrentStep = (index) => {
         let indexToNumber = parseToNumber(index.current.value);
-        console.log(indexToNumber);
-        //setIndex(this, indexToNumber);
+        setIndex(this, indexToNumber);
         pushHistory(this, this.slug.current.value);
     }
 
     render() {
         const { content, currentStep } = this.state;
         return (
-            <EndPage
+            <GlobalPart
                 content={content}
                 currentStepIndex={currentStep}
                 changeCurrentStep={this.changeCurrentStep}
@@ -45,4 +44,4 @@ class EndPageContainer extends Component {
     }
 }
 
-export default EndPageContainer;
+export default GlobalPartContainer;
