@@ -25,8 +25,7 @@ class EndPageContainer extends Component {
 
     changeCurrentStep = (index) => {
         let indexToNumber = parseToNumber(index.current.value);
-        console.log(indexToNumber);
-        //setIndex(this, indexToNumber);
+        setIndex(this, indexToNumber);
         pushHistory(this, this.slug.current.value);
     }
 

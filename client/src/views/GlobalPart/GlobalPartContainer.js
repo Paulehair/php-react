@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react';
-import GlobalPart from './GlobalPartContainer';
+import GlobalPart from './GlobalPart';
 import { fetchGlobalPart } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
@@ -8,7 +8,7 @@ class GlobalPartContainer extends Component {
         super(props)
         this.state = ({
             content: null,
-            currentStep: this.props.dataFromApp.currentIndex,
+            currentStep: 0,
         })
     }
 
@@ -17,7 +17,7 @@ class GlobalPartContainer extends Component {
     indexToGoSecond = createRef();
 
     async componentDidMount() {
-        const data = await fetchGlobalPart()
+        const data = await fetchGlobalPart();
         this.setState({
             content: data,
         })
