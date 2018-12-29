@@ -3,26 +3,25 @@ import '../style/App.css';
 import Router from './Router';
 
 class App extends Component {
-  state = {
-    currentIndex: null,
-  };
+  constructor(props) {
+    super(props)
+    this.state = ({
+      currentIndex: 0,
+    })
+  }
 
-  //
+
   setIndex = index => {
-    //declare a copy of state
-    const currentIndex = { ...this.state.currentIndex };
-    //create new instance of copy of state
-    currentIndex[`index${Date.now()}`] = index;
     this.setState({
       currentIndex: index,
     })
-    console.log('Index Set');
   };
 
   render() {
+    const { currentIndex } = this.state;
     return (
       <div className="App">
-        <Router setIndex={this.setIndex} />
+        <Router currentIndex={currentIndex} setIndex={this.setIndex} />
       </div>
     );
   }
