@@ -33,3 +33,21 @@ export function fetchTransition() {
     return fetch(url, requestConfig)
         .then(data => data.json())
 }
+
+export function fetchMap() {
+    const requestConfig = {
+        method: "GET"
+    }
+    const url = "//localhost:8000/map.php";
+    return fetch(url, requestConfig)
+        .then(data => data.json())
+}
+
+export function fetchMapArticle() {
+    const requestConfig = {
+        method: "GET"
+    }
+    const url = "//localhost:8000/maparticle.php";
+    return fetch(url, requestConfig)
+        .then(data => data.json())
+}
