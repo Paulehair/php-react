@@ -15,6 +15,7 @@ class TransitionContainer extends Component {
     slug = createRef();
     indexToGoFirst = createRef();
     indexToGoSecond = createRef();
+    indexToGoThird = createRef();
 
     async componentDidMount() {
         const data = await fetchTransition();
@@ -39,6 +40,7 @@ class TransitionContainer extends Component {
                 slug={this.slug}
                 indexToGoFirst={this.indexToGoFirst}
                 indexToGoSecond={this.indexToGoSecond}
+                indexToGoThird={this.indexToGoThird}
             />
         );
     }

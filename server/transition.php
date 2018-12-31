@@ -8,6 +8,8 @@ $sql = "SELECT
       `firstIndex`,
       `secondChoice`,
       `secondIndex`,
+      `thirdChoice`,
+      `thirdIndex`,
       `slug`
         FROM 
           `transition` 
