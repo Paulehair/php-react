@@ -25,11 +25,8 @@ class GlobalPartContainer extends Component {
 
     changeCurrentStep = (index) => {
         let indexToNumber = parseToNumber(index.current.value);
-        console.log(this.indexToGoFirst.current.value);
         setIndex(this, indexToNumber);
-        console.log('etape2');
         pushHistory(this, this.slug.current.value);
-        console.log('etape3');
     }
 
     render() {

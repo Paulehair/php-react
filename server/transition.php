@@ -3,7 +3,12 @@ require_once "conn.php";
 
 $sql = "SELECT
       `id`,
-      `title`
+      `title`,
+      `firstChoice`,
+      `firstIndex`,
+      `secondChoice`,
+      `secondIndex`,
+      `slug`
         FROM 
           `transition` 
         ";
