@@ -40,7 +40,7 @@ class IntroductionContainer extends Component {
             if (this.state.percentage === 100) {
                 this.stopLoader();
             }
-        }, 100);
+        }, 50);
     }
 
     stopLoader = () => {
