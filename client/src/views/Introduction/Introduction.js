@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Introduction = ({ changeCurrentStep, slug, indexToGo, percentage }) => {
+const Introduction = ({ changeCurrentStep, slug, indexToGo, percentage, display }) => {
 
     return (
         <div className={"introduction"}>
@@ -10,7 +10,9 @@ const Introduction = ({ changeCurrentStep, slug, indexToGo, percentage }) => {
                 <div className={"introduction-loader-percentage"}>
                     <p>CHARGEMENT <span>{percentage}%</span></p>
                 </div>
-                <button onClick={() => changeCurrentStep()} className={"button hidden"}>commencer</button>
+                {display &&
+                    <button onClick={() => changeCurrentStep()} className={"button"}>commencer</button>
+                }
                 <input ref={indexToGo} type="hidden" defaultValue={0} />
                 <input ref={slug} type="hidden" defaultValue={'endpage'} />
             </div>

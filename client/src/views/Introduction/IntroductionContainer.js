@@ -8,7 +8,8 @@ class IntroductionContainer extends Component {
         this.state = ({
             content: null,
             currentIntroduction: this.props.dataFromApp.currentIndex,
-            percentage: 0
+            percentage: 0,
+            display: false
         });
         this.counter = 0;
         this.startLoader();
@@ -45,10 +46,13 @@ class IntroductionContainer extends Component {
 
     stopLoader = () => {
         clearInterval(this.counter);
+        this.setState({
+            display: true
+        })
     }
 
     render() {
-        const { content, currentIntroduction } = this.state;
+        const { content, currentIntroduction, display } = this.state;
         return (
             <Introduction
                 content={content}
@@ -57,6 +61,7 @@ class IntroductionContainer extends Component {
                 indexToGo={this.indexToGo}
                 changeCurrentStep={this.changeCurrentStep}
                 percentage={this.state.percentage}
+                display={display}
             />
         );
     }
