@@ -10,7 +10,7 @@ const Article = ({ articles, goToNextOption, currentArticleIndex, slug, index })
             <h4>{currentArticle.subtitle}</h4>
             <p>{currentArticle.firstText}</p>
             <p>{currentArticle.secondText}</p>
-            <button onClick={() => goToNextOption(index)}>{currentArticle.firstChoice}</button>
+            <button onClick={() => goToNextOption(index)} className={"button"}>{currentArticle.firstChoice}</button>
             <input ref={index} type="hidden" defaultValue={currentArticle.firstIndex} />
             <input ref={slug} type="hidden" defaultValue={currentArticle.slug} />
         </div>;

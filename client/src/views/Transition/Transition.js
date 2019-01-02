@@ -7,16 +7,16 @@ const Transition = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
         const currentStep = content[currentStepIndex];
         code = <div key={currentStep.id}>
             <h1>{currentStep.title}</h1>
-            <button onClick={() => changeCurrentStep(indexToGoFirst)} >{currentStep.firstChoice}</button>
+            <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.firstChoice}</button>
             <input ref={indexToGoFirst} type="hidden" value={currentStep.firstIndex} />
-            <button onClick={() => changeCurrentStep(indexToGoSecond)} >{currentStep.secondChoice}</button>
+            <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.secondChoice}</button>
             <input ref={indexToGoSecond} type="hidden" value={currentStep.secondIndex} />
             <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
         </div>;
         if (currentStep.thirdChoice) {
             codeThirdChoice =
                 <div key={currentStep.id}>
-                    <button onClick={() => changeCurrentStep(indexToGoThird)} >{currentStep.thirdChoice}</button>
+                    <button onClick={() => changeCurrentStep(indexToGoThird)} className={"button"}>{currentStep.thirdChoice}</button>
                     <input ref={indexToGoThird} type="hidden" value={currentStep.thirdIndex} />
                 </div>
         }

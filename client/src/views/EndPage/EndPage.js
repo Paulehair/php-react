@@ -7,9 +7,9 @@ const EndPage = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGo
         const currentStep = content[currentStepIndex];
         code = <div key={currentStep.id}>
             <h1>{currentStep.title}</h1>
-            <button onClick={() => changeCurrentStep(indexToGoFirst)} >Vaincre la maladie</button>
+            <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>Vaincre la maladie</button>
             <input ref={indexToGoFirst} type="hidden" defaultValue={0} />
-            <button onClick={() => changeCurrentStep(indexToGoSecond)} >Vaincre le handicap</button>
+            <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>Vaincre le handicap</button>
             <input ref={indexToGoSecond} type="hidden" defaultValue={1} />
             <input ref={slug} type="hidden" defaultValue={'globalpart'} />
         </div>;
