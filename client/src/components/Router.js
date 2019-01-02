@@ -4,6 +4,8 @@ import Introduction from '../views/Introduction/IntroductionContainer';
 import EndPage from '../views/EndPage/EndPageContainer';
 import GlobalPart from '../views/GlobalPart/GlobalPartContainer';
 import Article from '../views/Article/ArticleContainer';
+import Transition from '../views/Transition/TransitionContainer';
+import Map from '../views/Map/MapContainer';
 import NotFound from '../views/NotFound/NotFound';
 
 const Router = (props) => (
@@ -20,6 +22,12 @@ const Router = (props) => (
             />
             <Route path="/articles"
                 render={(routeProps) => (<Article {...routeProps} dataFromApp={props} />)}
+            />
+            <Route path="/transition"
+                render={(routeProps) => (<Transition {...routeProps} dataFromApp={props} />)}
+            />
+            <Route path="/map"
+                render={(routeProps) => (<Map {...routeProps} dataFromApp={props} />)}
             />
             <Route component={NotFound} />
         </Switch>

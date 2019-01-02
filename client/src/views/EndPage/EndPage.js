@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const EndPage = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst, indexToGoSecond }) => {
-    console.log(currentStepIndex);
-
     let code;
     if (content) {
         const currentStep = content[currentStepIndex];

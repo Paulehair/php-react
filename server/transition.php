@@ -3,15 +3,16 @@ require_once "conn.php";
 
 $sql = "SELECT
       `id`,
-      `title`, 
-      `subtitle`, 
-      `firstText`, 
-      `secondText`,
+      `title`,
       `firstChoice`,
       `firstIndex`,
+      `secondChoice`,
+      `secondIndex`,
+      `thirdChoice`,
+      `thirdIndex`,
       `slug`
         FROM 
-          `article` 
+          `transition` 
         ";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();

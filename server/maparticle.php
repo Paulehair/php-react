@@ -5,13 +5,9 @@ $sql = "SELECT
       `id`,
       `title`, 
       `subtitle`, 
-      `firstText`, 
-      `secondText`,
-      `firstChoice`,
-      `firstIndex`,
-      `slug`
+      `img`
         FROM 
-          `article` 
+          `map_article` 
         ";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();

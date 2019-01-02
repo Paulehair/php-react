@@ -8,7 +8,7 @@ class GlobalPartContainer extends Component {
         super(props)
         this.state = ({
             content: null,
-            currentStep: 0,
+            currentStep: this.props.dataFromApp.currentIndex,
         })
     }
 
