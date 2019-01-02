@@ -8,7 +8,10 @@ class IntroductionContainer extends Component {
         this.state = ({
             content: null,
             currentIntroduction: this.props.dataFromApp.currentIndex,
-        })
+            percentage: 0
+        });
+        this.counter = 0;
+        this.startLoader();
         this.changeCurrentStep = this.changeCurrentStep.bind(this);
     };
 
@@ -21,6 +24,29 @@ class IntroductionContainer extends Component {
         pushHistory(this, this.slug.current.value);
     }
 
+    componentWillUnmount = () => {
+        this.stopLoader();
+    }
+
+    loader = () => {
+        this.setState({
+            percentage: this.state.percentage += 1
+        });
+    }
+
+    startLoader = () => {
+        this.counter = setInterval(() => {
+            this.loader();
+            if (this.state.percentage === 100) {
+                this.stopLoader();
+            }
+        }, 100);
+    }
+
+    stopLoader = () => {
+        clearInterval(this.counter);
+    }
+
     render() {
         const { content, currentIntroduction } = this.state;
         return (
@@ -30,6 +56,7 @@ class IntroductionContainer extends Component {
                 slug={this.slug}
                 indexToGo={this.indexToGo}
                 changeCurrentStep={this.changeCurrentStep}
+                percentage={this.state.percentage}
             />
         );
     }

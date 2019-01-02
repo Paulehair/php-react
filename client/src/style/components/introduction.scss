@@ -1,0 +1,21 @@
+.introduction {
+    background: url(/images/introduction/background.png);
+    height: 100vh;
+    text-align: center;
+
+    &-title {
+        margin-bottom: 10px;
+    }
+
+    &-loader {
+        margin: 0 auto;
+        height: 2px;
+        width: 120px;
+        background-color: $main-color;
+        margin-bottom: 15px;
+
+        &-percentage>p {
+            font-size: 9px;
+        }
+    }
+}

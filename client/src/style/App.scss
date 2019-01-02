@@ -1,0 +1,10 @@
+@import "./variables/font.scss";
+@import "./variables/variable.scss";
+@import "./components/reset.scss";
+@import "./components/button.scss";
+@import "./components/introduction.scss";
+
+html {
+  font-family: "lato";
+  color: #fff;
+}
