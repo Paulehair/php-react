@@ -3,7 +3,16 @@ require_once "conn.php";
 
 $sql = "SELECT
       `id`,
-      `title`
+      `title`,
+      `spanTitle`,
+      `text`,
+      `moreText`,
+      `reference`,
+      `question`,
+      `firstChoice`,
+      `firstIndex`,
+      `secondChoice`,
+      `secondIndex`
         FROM 
           `end_point` 
         ";
