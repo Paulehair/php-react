@@ -1,0 +1,46 @@
+.endpage {
+    background: url(/images/02-endpage/background.png);
+    padding: 20px;
+
+    &-title {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    &-title>h1:last-child {
+        color: $main-color;
+        line-height: 35px;
+    }
+
+    &-text {
+        width: 90%;
+        font-size: 14px;
+        line-height: 18px;
+
+        &>p:last-child {
+            margin-top: 25px;
+        }
+    }
+
+    &-reference {
+        margin-top: 25px;
+        font-size: 11px;
+        font-style: italic;
+    }
+
+    &-question {
+        margin-top: 25px;
+        font-size: 22px;
+        line-height: 26px;
+        text-align: center;
+    }
+
+    &-choice {
+        margin: 0 auto;
+
+        &-btn {
+            width: 165px;
+            margin-top: 15px;
+        }
+    }
+}
