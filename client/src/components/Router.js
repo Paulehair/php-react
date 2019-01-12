@@ -20,7 +20,7 @@ const Router = (props) => (
             <Route path="/globalpart"
                 render={(routeProps) => (<GlobalPart {...routeProps} dataFromApp={props} />)}
             />
-            <Route path="/articles"
+            <Route path="/article"
                 render={(routeProps) => (<Article {...routeProps} dataFromApp={props} />)}
             />
             <Route path="/transition"
