@@ -1,0 +1,23 @@
+body {
+  font-family: $text;
+  color: #fff;
+  background-color: #000;
+}
+
+.container {
+    padding: 60px 20px;
+    margin: auto;
+    max-width: $bp-desktop;
+}
+
+.title {
+    @include title;
+}
+
+.subtitle {
+    @include subtitle;
+}
+
+.strong {
+    color: $main-color;
+}

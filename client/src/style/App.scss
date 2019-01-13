@@ -1,14 +1,12 @@
-@import "./variables/font.scss";
-@import "./variables/variable.scss";
-@import "./components/reset.scss";
+@import "./global/reset.scss";
+@import "./global/font.scss";
+@import "./global/variable.scss";
+@import "./global/global.scss";
+
+//import components
 @import "./components/button.scss";
 
 //import views
-@import "./components/introduction.scss";
-@import "./components/endpage.scss";
-
-html {
-  font-family: "lato";
-  color: #fff;
-  background-color: #000;
-}
+@import "./views/introduction.scss";
+@import "./views/article.scss";
+@import "./views/endpage.scss";

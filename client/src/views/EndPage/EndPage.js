@@ -6,8 +6,8 @@ const EndPage = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGo
     if (content) {
         const currentStep = content[currentStepIndex];
         code =
-            <div key={currentStep.id} className={"endpage"}>
-                <div className={"endpage-title"}>
+            <div key={currentStep.id} className={"endpage container"}>
+                <div className={"endpage-title title"}>
                     <h1>{currentStep.title}</h1>
                     <h1>{currentStep.spanTitle}</h1>
                 </div>
