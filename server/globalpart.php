@@ -16,6 +16,7 @@ $sql = "SELECT
       `secondSubtitle`,
       `secondContent`,
       `secondContentMore`,
+      `question`,
       `firstChoice`,
       `firstIndex`,
       `secondChoice`,

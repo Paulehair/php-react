@@ -1,0 +1,45 @@
+.globalpart {
+    background: url(/images/03-globalpart/background.png) top right no-repeat fixed;
+
+    &-quotation {
+        font-size: 20px;
+
+        &-span {
+            font-family: 'lato';
+        }
+
+        &-colored {
+            font-size: 28px;
+            font-family: 'lato';
+        }
+    }
+
+    &-source {
+        margin: 20px 0;
+
+        &-text {
+            font-style: italic;
+            font-size: 14px;
+        }
+    }
+
+    &-main {
+        margin-bottom: 20px;
+
+        &-text {
+            margin-bottom: 10px;
+        }
+    }
+
+    &-question {
+        &-text {
+            font-family: 'lato';
+            font-size: 24px;
+            text-align: center;
+        }
+    }
+
+    &-btn {
+        margin: 20px;
+    }
+}

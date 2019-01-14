@@ -14,7 +14,7 @@ $sql = "SELECT
       `secondChoice`,
       `secondIndex`
         FROM 
-          `end_page` 
+          `end_point` 
         ";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
