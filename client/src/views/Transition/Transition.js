@@ -12,7 +12,7 @@ const Transition = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
             <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.second_choice}</button>
             <input ref={indexToGoSecond} type="hidden" value={currentStep.second_index} />
             <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
-            {currentStep.thirdChoice !== null &&
+            {currentStep.third_choice !== null &&
                 <Fragment>
                     <button onClick={() => changeCurrentStep(indexToGoThird)} className={"button"}>{currentStep.third_choice}</button>
                     <input ref={indexToGoThird} type="hidden" value={currentStep.third_index} />
