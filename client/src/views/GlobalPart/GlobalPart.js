@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../../components/Header';
 
 const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst, indexToGoSecond }) => {
     let code;
@@ -35,7 +36,8 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
     }
 
     return content && (
-        <div>
+        <div className={"page"}>
+            <Header />
             {code}
         </div>
     );

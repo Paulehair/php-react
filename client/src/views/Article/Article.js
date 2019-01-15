@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Header from '../../components/Header';
 
 const Article = ({ articles, goToNextOption, currentArticleIndex, slug, index }) => {
     let code;
@@ -10,7 +11,7 @@ const Article = ({ articles, goToNextOption, currentArticleIndex, slug, index })
             <h4 className={"article-subtitle subtitle"}>{currentArticle.subtitle}</h4>
             <p className={"article-text"}>{currentArticle.text1}</p>
             <div className="article-imgContainer">
-                <img className={"article-img"} src="./images/03-article/img.png" alt=""/>
+                <img className={"article-img"} src="./images/03-article/img.png" alt="" />
             </div>
             <p className={"article-text"}>{currentArticle.text2}</p>
             <div className="container">
@@ -23,6 +24,7 @@ const Article = ({ articles, goToNextOption, currentArticleIndex, slug, index })
 
     return articles && (
         <div className="article">
+            <Header />
             {code}
         </div>
     );

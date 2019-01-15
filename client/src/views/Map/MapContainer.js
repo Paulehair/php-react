@@ -1,7 +1,5 @@
 import React, { Component, createRef, Fragment } from 'react';
 import Map from './Map';
-import MapArticle from '../MapArticle/MapArticleContainer';
-import Header from '../../components/Header';
 import { fetchMap } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
@@ -34,8 +32,7 @@ class MapContainer extends Component {
     render() {
         const { content, currentStep } = this.state;
         return (
-            <Fragment>
-                <Header />
+            <div className="page">
                 <Map
                     content={content}
                     currentStepIndex={currentStep}
@@ -44,8 +41,7 @@ class MapContainer extends Component {
                     indexToGoFirst={this.indexToGoFirst}
                     indexToGoSecond={this.indexToGoSecond}
                 />
-                <MapArticle />
-            </Fragment>
+            </div>
         );
     }
 }
