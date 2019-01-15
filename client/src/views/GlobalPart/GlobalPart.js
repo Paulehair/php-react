@@ -2,7 +2,6 @@ import React from 'react';
 
 const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst, indexToGoSecond }) => {
     let code;
-    let codeSecondChoice;
     if (content) {
         const currentStep = content[currentStepIndex];
         code = <div key={currentStep.id} className={"globalpart"}>
@@ -19,11 +18,11 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
                 </div>
 
                 <div className={"globalpart-main"}>
-                    <p className={"globalpart-main-text subtitle strong"}>{currentStep.firstSubtitle}</p>
-                    <p className={"globalpart-part-text"}>{currentStep.firstContent}</p>
+                    <p className={"globalpart-main-text title strong"}>{currentStep.firstSubtitle}</p>
+                    <p className={"globalpart-main-text"}>{currentStep.firstContent}</p>
                 </div>
                 <div className={"globalpart-main"}>
-                    <p className={"globalpart-main-text subtitle strong"}>{currentStep.secondSubtitle}</p>
+                    <p className={"globalpart-main-text title strong"}>{currentStep.secondSubtitle}</p>
                     <p className={"globalpart-main-text"}>{currentStep.secondContent}</p>
                     <p className={"globalpart-main-text"}>{currentStep.secondContentMore}</p>
                 </div>
@@ -34,7 +33,7 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
                     <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.firstChoice}</button>
                     <input ref={indexToGoFirst} type="hidden" value={currentStep.firstIndex} />
                 </div>
-                {currentStep.secondChoice.length > 0 &&
+                {currentStep.secondChoice !== null &&
                     <div className={"globalpart-btn"}>
                         <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.secondChoice}</button>
                         <input ref={indexToGoSecond} type="hidden" value={currentStep.secondIndex} />
