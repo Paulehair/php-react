@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Header from '../../components/Header';
 
 const EndPage = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst, indexToGoSecond }) => {
     let code;
@@ -33,6 +34,7 @@ const EndPage = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGo
 
     return content && (
         <div className={"endpage"}>
+            <Header />
             {code}
         </div>
     );

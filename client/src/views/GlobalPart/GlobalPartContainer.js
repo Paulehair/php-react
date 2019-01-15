@@ -1,6 +1,5 @@
 import React, { Component, createRef, Fragment } from 'react';
 import GlobalPart from './GlobalPart';
-import Header from '../../components/Header';
 import { fetchGlobalPart } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
@@ -33,8 +32,7 @@ class GlobalPartContainer extends Component {
     render() {
         const { content, currentStep } = this.state;
         return (
-            <Fragment>
-                <Header />
+            <div className={"page"}>
                 <GlobalPart
                     content={content}
                     currentStepIndex={currentStep}
@@ -43,7 +41,7 @@ class GlobalPartContainer extends Component {
                     indexToGoFirst={this.indexToGoFirst}
                     indexToGoSecond={this.indexToGoSecond}
                 />
-            </Fragment>
+            </div>
         );
     }
 }

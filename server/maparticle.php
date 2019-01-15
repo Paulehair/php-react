@@ -15,8 +15,8 @@ $sql = "SELECT
         FROM 
           `map_article` 
         ";
-$stmt = $pdo_>prepare($sql);
-$stmt_>execute();
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
 $rows = array();
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $rows[] = $row;
