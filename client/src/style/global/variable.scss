@@ -1,0 +1,28 @@
+//Breakpoint
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-desktop-large: 1200px;
+
+//Color
+$main-color: #FF5C5A;
+
+//Font
+$title: 'lato';
+$text: 'lato-light';
+
+@mixin title {
+    font-family: $title;
+    font-size: 26px;
+    margin-bottom: 15px;
+    @media screen and (min-width: $bp-tablet + 1) {
+        font-size: 42px;
+        margin-bottom: 25px;
+    }
+}
+
+@mixin subtitle {
+    font-family: $text;
+    font-size: 18px;
+    margin-bottom: 50px;
+}

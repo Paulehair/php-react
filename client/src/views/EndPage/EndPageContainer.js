@@ -1,5 +1,6 @@
-import React, { Component, createRef } from 'react';
+import React, { Component, createRef, Fragment } from 'react';
 import EndPage from './EndPage';
+import Header from '../../components/Header';
 import { fetchEndpoint } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
@@ -32,14 +33,17 @@ class EndPageContainer extends Component {
     render() {
         const { content, currentStep } = this.state;
         return (
-            <EndPage
-                content={content}
-                currentStepIndex={currentStep}
-                changeCurrentStep={this.changeCurrentStep}
-                slug={this.slug}
-                indexToGoFirst={this.indexToGoFirst}
-                indexToGoSecond={this.indexToGoSecond}
-            />
+            <Fragment>
+                <Header />
+                <EndPage
+                    content={content}
+                    currentStepIndex={currentStep}
+                    changeCurrentStep={this.changeCurrentStep}
+                    slug={this.slug}
+                    indexToGoFirst={this.indexToGoFirst}
+                    indexToGoSecond={this.indexToGoSecond}
+                />
+            </Fragment>
         );
     }
 }

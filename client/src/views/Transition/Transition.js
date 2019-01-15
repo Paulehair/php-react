@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const Transition = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst, indexToGoSecond, indexToGoThird }) => {
     let code;
@@ -12,20 +12,18 @@ const Transition = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
             <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.secondChoice}</button>
             <input ref={indexToGoSecond} type="hidden" value={currentStep.secondIndex} />
             <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
-        </div>;
-        if (currentStep.thirdChoice) {
-            codeThirdChoice =
-                <div key={currentStep.id}>
+            {currentStep.thirdChoice !== null &&
+                <Fragment>
                     <button onClick={() => changeCurrentStep(indexToGoThird)} className={"button"}>{currentStep.thirdChoice}</button>
                     <input ref={indexToGoThird} type="hidden" value={currentStep.thirdIndex} />
-                </div>
-        }
+                </Fragment>
+            }
+        </div>;
     }
 
     return content && (
         <div>
             {code}
-            {codeThirdChoice}
         </div>
     );
 }

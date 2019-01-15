@@ -1,0 +1,57 @@
+@keyframes load {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.introduction {
+    height: 100vh;
+    text-align: center;
+
+    &-video {
+        position: fixed;
+        right: 0;
+        top: -200px;
+    }
+
+    &-content {
+        position: fixed;
+        top: 40%;
+        color: #fff;
+        width: 100%;
+    }
+
+    &-title {
+        font-family: "lato-light";
+        font-size: 25px;
+        letter-spacing: 8px;
+        margin-bottom: 10px;
+    }
+
+    &-loader {
+        position: relative;
+        margin: 0 auto;
+        height: 2px;
+        width: 135px;
+        margin-bottom: 15px;
+
+        span {
+            display: block;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background-color: $main-color;
+            animation: load 5s linear;
+        }
+
+        &-percentage>p {
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 70px;
+        }
+    }
+}

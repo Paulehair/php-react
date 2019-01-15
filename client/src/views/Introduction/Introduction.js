@@ -4,7 +4,12 @@ const Introduction = ({ changeCurrentStep, slug, indexToGo, percentage, display 
 
     return (
         <div className={"introduction"}>
-            <div className={"introduction-ctnr"}>
+            <div className={"introduction-video"}>
+                <video autoPlay muted loop>
+                    <source src="./images/01-introduction/digital-memory.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <div className={"introduction-content"}>
                 <h1 className={"introduction-title"}>EVOLVE</h1>
                 <div className={"introduction-loader"}><span></span></div>
                 <div className={"introduction-loader-percentage"}>
@@ -13,9 +18,9 @@ const Introduction = ({ changeCurrentStep, slug, indexToGo, percentage, display 
                 {display &&
                     <button onClick={() => changeCurrentStep()} className={"button"}>commencer</button>
                 }
-                <input ref={indexToGo} type="hidden" defaultValue={0} />
-                <input ref={slug} type="hidden" defaultValue={'endpage'} />
             </div>
+            <input ref={indexToGo} type="hidden" defaultValue={0} />
+            <input ref={slug} type="hidden" defaultValue={'endpage'} />
         </div>
     );
 };

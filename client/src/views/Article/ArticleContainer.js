@@ -1,5 +1,6 @@
-import React, { Component, createRef } from 'react';
+import React, { Component, createRef, Fragment } from 'react';
 import Article from './Article';
+import Header from '../../components/Header';
 import { fetchData } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
@@ -34,13 +35,16 @@ class ArticleContainer extends Component {
     render() {
         const { articles, currentArticle } = this.state;
         return (
-            <Article
-                articles={articles}
-                currentArticleIndex={currentArticle}
-                slug={this.slug}
-                index={this.index}
-                goToNextOption={this.goToNextOption}
-            />
+            <Fragment>
+                <Header />
+                <Article
+                    articles={articles}
+                    currentArticleIndex={currentArticle}
+                    slug={this.slug}
+                    index={this.index}
+                    goToNextOption={this.goToNextOption}
+                />
+            </Fragment>
         );
     }
 }

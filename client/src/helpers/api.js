@@ -11,7 +11,7 @@ export function fetchEndpoint() {
     const requestConfig = {
         method: "GET"
     }
-    const url = "//localhost:8000/endpoint.php";
+    const url = "//localhost:8000/endpage.php";
     return fetch(url, requestConfig)
         .then(data => data.json())
 }
