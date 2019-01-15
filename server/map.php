@@ -4,8 +4,8 @@ require_once "conn.php";
 $sql = "SELECT
       `id`,
       `title`,
-      `firstChoice`,
-      `firstIndex`,
+      `first_choice`,
+      `first_index`,
       `slug`
         FROM 
           `map` 
