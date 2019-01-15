@@ -3,14 +3,20 @@ require_once "conn.php";
 
 $sql = "SELECT
       `id`,
+      `img_country`,
       `title`, 
       `subtitle`, 
-      `img`
+      `img`,
+      `video`,
+      `text1`,
+      `text2`,
+      `text3`,
+      `source`
         FROM 
           `map_article` 
         ";
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt = $pdo_>prepare($sql);
+$stmt_>execute();
 $rows = array();
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $rows[] = $row;

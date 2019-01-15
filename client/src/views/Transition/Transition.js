@@ -7,15 +7,15 @@ const Transition = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
         const currentStep = content[currentStepIndex];
         code = <div key={currentStep.id}>
             <h1>{currentStep.title}</h1>
-            <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.firstChoice}</button>
-            <input ref={indexToGoFirst} type="hidden" value={currentStep.firstIndex} />
-            <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.secondChoice}</button>
-            <input ref={indexToGoSecond} type="hidden" value={currentStep.secondIndex} />
+            <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
+            <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
+            <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.second_choice}</button>
+            <input ref={indexToGoSecond} type="hidden" value={currentStep.second_index} />
             <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
             {currentStep.thirdChoice !== null &&
                 <Fragment>
-                    <button onClick={() => changeCurrentStep(indexToGoThird)} className={"button"}>{currentStep.thirdChoice}</button>
-                    <input ref={indexToGoThird} type="hidden" value={currentStep.thirdIndex} />
+                    <button onClick={() => changeCurrentStep(indexToGoThird)} className={"button"}>{currentStep.third_choice}</button>
+                    <input ref={indexToGoThird} type="hidden" value={currentStep.third_index} />
                 </Fragment>
             }
         </div>;
