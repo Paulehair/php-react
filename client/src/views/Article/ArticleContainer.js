@@ -1,6 +1,8 @@
-import React, { Component, createRef } from 'react';
+import React, { Component, createRef, Fragment } from 'react';
 import Article from './Article';
+import Header from '../../components/Header';
 import { fetchData } from '../../helpers/api';
+import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
 class ArticleContainer extends Component {
     constructor(props) {
@@ -13,6 +15,7 @@ class ArticleContainer extends Component {
 
     //create reference to get slug inside input hidden in Article.js
     slug = createRef();
+    index = createRef();
 
     //fetch data from server using api.js
     async componentDidMount() {
@@ -22,32 +25,26 @@ class ArticleContainer extends Component {
         })
     }
 
-    changeCurrentIndex = () => {
-        this.setState({
-            currentArticle: 1,
-        })
-    }
-
     //function to rederect to right component at the right instance
-    goToNextOption = () => {
-        this.changeCurrentIndex()
-        //get slug thanks to ref
-        let slug = this.slug.current.value;
-        //push slug in url
-        //this.props.history.push(`/` + slug);
-        //set index in App.js to pass right index to the component pushed in url
-        this.props.setIndex.setIndex(this.state.currentArticle);
+    goToNextOption = index => {
+        let indexToNumber = parseToNumber(index.current.value);
+        setIndex(this, indexToNumber);
+        pushHistory(this, this.slug.current.value);
     };
 
     render() {
         const { articles, currentArticle } = this.state;
         return (
-            <Article
-                articles={articles}
-                currentArticleIndex={currentArticle}
-                slug={this.slug}
-                goToNextOption={this.goToNextOption}
-            />
+            <Fragment>
+                <Header />
+                <Article
+                    articles={articles}
+                    currentArticleIndex={currentArticle}
+                    slug={this.slug}
+                    index={this.index}
+                    goToNextOption={this.goToNextOption}
+                />
+            </Fragment>
         );
     }
 }

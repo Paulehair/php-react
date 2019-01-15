@@ -1,5 +1,6 @@
-import React, { Component, createRef } from 'react';
+import React, { Component, createRef, Fragment } from 'react';
 import GlobalPart from './GlobalPart';
+import Header from '../../components/Header';
 import { fetchGlobalPart } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
@@ -8,7 +9,7 @@ class GlobalPartContainer extends Component {
         super(props)
         this.state = ({
             content: null,
-            currentStep: 0,
+            currentStep: this.props.dataFromApp.currentIndex,
         })
     }
 
@@ -32,14 +33,17 @@ class GlobalPartContainer extends Component {
     render() {
         const { content, currentStep } = this.state;
         return (
-            <GlobalPart
-                content={content}
-                currentStepIndex={currentStep}
-                changeCurrentStep={this.changeCurrentStep}
-                slug={this.slug}
-                indexToGoFirst={this.indexToGoFirst}
-                indexToGoSecond={this.indexToGoSecond}
-            />
+            <Fragment>
+                <Header />
+                <GlobalPart
+                    content={content}
+                    currentStepIndex={currentStep}
+                    changeCurrentStep={this.changeCurrentStep}
+                    slug={this.slug}
+                    indexToGoFirst={this.indexToGoFirst}
+                    indexToGoSecond={this.indexToGoSecond}
+                />
+            </Fragment>
         );
     }
 }

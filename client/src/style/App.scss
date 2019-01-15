@@ -1,0 +1,14 @@
+@import "./global/reset.scss";
+@import "./global/font.scss";
+@import "./global/variable.scss";
+@import "./global/global.scss";
+
+//import components
+@import "./components/header.scss";
+@import "./components/button.scss";
+
+//import views
+@import "./views/introduction.scss";
+@import "./views/article.scss";
+@import "./views/endpage.scss";
+@import "./views/globalpart.scss";
