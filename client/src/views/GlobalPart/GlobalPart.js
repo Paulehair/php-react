@@ -8,23 +8,44 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
         code = <div key={currentStep.id} className={"globalpart"}>
             <div className={"container"}>
                 <h1 className={"globalpart-title title"}>{currentStep.title}</h1>
-                <p className={"globalpart-quotation"}>{currentStep.subtitle}</p>
+                <p className={"globalpart-title title strong"}>{currentStep.title_span}</p>
 
                 <div className={"globalpart-main"}>
-                    <p className={"globalpart-main-text"}>{currentStep.text1}</p>
-                    <p className={"globalpart-main-text"}>{currentStep.text2}</p>
-                    <p className={"globalpart-main-text"}>{currentStep.text3}</p>
-                    <p className={"globalpart-main-text"}>{currentStep.text4}</p>
+                    <p className={"globalpart-main-text"}>{currentStep.main_text1}</p>
+                    <p className={"globalpart-main-text"}>{currentStep.main_text2}</p>
                 </div>
 
-                <div className={"globalpart-question"}>
-                    <p className={"globalpart-question-text"}>{currentStep.question}</p>
+                <div>
+                    <img src="" alt="" />
+                    <p>{currentStep.introduction}</p>
+                    <p>{currentStep.introduction2}</p>
                 </div>
+
+                <div className={"globalpart-main"}>
+                    <p className={"globalpart-main-text"}>{currentStep.subtitle1}</p>
+                    <p className={"globalpart-main-text"}>{currentStep.subcontent1}</p>
+                </div>
+
+                <div className={"globalpart-main"}>
+                    <p className={"globalpart-main-text"}>{currentStep.subtitle2}</p>
+                    <p className={"globalpart-main-text"}>{currentStep.subcontent2}</p>
+                    <p className={"globalpart-main-text"}>{currentStep.subcontent21}</p>
+                </div>
+
+                {currentStep.subtitle3 !== null &&
+                    <div className={"globalpart-main"}>
+                        <p className={"globalpart-main-text"}>{currentStep.subtitle3}</p>
+                        <p className={"globalpart-main-text"}>{currentStep.subcontent3}</p>
+                        <p className={"globalpart-main-text"}>{currentStep.subcontent31}</p>
+                    </div>
+                }
+
                 <div className={"globalpart-btn"}>
                     <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
                     <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
                 </div>
-                {currentStep.secondChoice !== null &&
+
+                {currentStep.second_choice !== null &&
                     <div className={"globalpart-btn"}>
                         <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.second_choice}</button>
                         <input ref={indexToGoSecond} type="hidden" value={currentStep.second_index} />
@@ -36,7 +57,7 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
     }
 
     return content && (
-        <div className={"page"}>
+        <div>
             <Header />
             {code}
         </div>

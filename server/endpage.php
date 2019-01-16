@@ -2,18 +2,7 @@
 require_once "conn.php";
 
 $sql = "SELECT
-      `id`,
-      `title`,
-      `title_span`,
-      `text1`,
-      `text2`,
-      `text3`,
-      `source`,
-      `question`,
-      `first_choice`,
-      `first_index`,
-      `second_choice`,
-      `second_index`
+      *
         FROM 
           `end_point` 
         ";
