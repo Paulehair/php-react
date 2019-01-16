@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Header from '../../components/Header';
 
 const Article = ({ articles, goToNextOption, currentArticleIndex, slug, index }) => {
     let code;
@@ -8,21 +9,22 @@ const Article = ({ articles, goToNextOption, currentArticleIndex, slug, index })
         code = <div className={"container"} key={currentArticle.id}>
             <h1 className={"article-title title"}>{currentArticle.title}</h1>
             <h4 className={"article-subtitle subtitle"}>{currentArticle.subtitle}</h4>
-            <p className={"article-text"}>{currentArticle.firstText}</p>
+            <p className={"article-text"}>{currentArticle.text1}</p>
             <div className="article-imgContainer">
-                <img className={"article-img"} src="./images/03-article/img.png" alt=""/>
+                <img className={"article-img"} src="./images/03-article/img.png" alt="" />
             </div>
-            <p className={"article-text"}>{currentArticle.secondText}</p>
+            <p className={"article-text"}>{currentArticle.text2}</p>
             <div className="container">
-                <button onClick={() => goToNextOption(index)} className={"button"}>{currentArticle.firstChoice}</button>
+                <button onClick={() => goToNextOption(index)} className={"button"}>{currentArticle.first_choice}</button>
             </div>
-            <input ref={index} type="hidden" defaultValue={currentArticle.firstIndex} />
+            <input ref={index} type="hidden" defaultValue={currentArticle.first_index} />
             <input ref={slug} type="hidden" defaultValue={currentArticle.slug} />
         </div>;
     }
 
     return articles && (
         <div className="article">
+            <Header />
             {code}
         </div>
     );

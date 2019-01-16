@@ -1,7 +1,5 @@
 import React, { Component, createRef, Fragment } from 'react';
 import Map from './Map';
-import MapArticle from '../MapArticle/MapArticleContainer';
-import Header from '../../components/Header';
 import { fetchMap } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
@@ -33,9 +31,6 @@ class MapContainer extends Component {
         pushHistory(this, this.slug.current.value);
     }
 
-    sliderNav = element => {
-        // element.preventDefault();
-    }
 
     render() {
         const { content, currentStep } = this.state;

@@ -33,15 +33,17 @@ class TransitionContainer extends Component {
     render() {
         const { content, currentStep } = this.state;
         return (
-            <Transition
-                content={content}
-                currentStepIndex={currentStep}
-                changeCurrentStep={this.changeCurrentStep}
-                slug={this.slug}
-                indexToGoFirst={this.indexToGoFirst}
-                indexToGoSecond={this.indexToGoSecond}
-                indexToGoThird={this.indexToGoThird}
-            />
+            <div className="page">
+                <Transition
+                    content={content}
+                    currentStepIndex={currentStep}
+                    changeCurrentStep={this.changeCurrentStep}
+                    slug={this.slug}
+                    indexToGoFirst={this.indexToGoFirst}
+                    indexToGoSecond={this.indexToGoSecond}
+                    indexToGoThird={this.indexToGoThird}
+                />
+            </div>
         );
     }
 }
