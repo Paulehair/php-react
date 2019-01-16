@@ -1,4 +1,4 @@
-import React, { Component, createRef, Fragment } from 'react';
+import React, { Component, createRef } from 'react';
 import Map from './Map';
 import { fetchMap } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
@@ -35,17 +35,15 @@ class MapContainer extends Component {
     render() {
         const { content, currentStep } = this.state;
         return (
-            <div className="map">
-                <Header />
-                {/* <Map
+            <div className="page">
+                <Map
                     content={content}
                     currentStepIndex={currentStep}
                     changeCurrentStep={this.changeCurrentStep}
                     slug={this.slug}
                     indexToGoFirst={this.indexToGoFirst}
                     indexToGoSecond={this.indexToGoSecond}
-                /> */}
-                <MapArticle />
+                />
             </div>
         );
     }
