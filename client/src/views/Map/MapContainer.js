@@ -1,4 +1,4 @@
-import React, { Component, createRef, Fragment } from 'react';
+import React, { Component, createRef } from 'react';
 import Map from './Map';
 import { fetchMap } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
@@ -9,8 +9,10 @@ class MapContainer extends Component {
         this.state = ({
             content: null,
             currentStep: this.props.dataFromApp.currentIndex,
+            currentSlide: this
         })
     }
+
 
     slug = createRef();
     indexToGoFirst = createRef();
@@ -28,6 +30,7 @@ class MapContainer extends Component {
         setIndex(this, indexToNumber);
         pushHistory(this, this.slug.current.value);
     }
+
 
     render() {
         const { content, currentStep } = this.state;

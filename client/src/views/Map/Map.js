@@ -2,7 +2,10 @@ import React from 'react';
 import MapArticle from '../MapArticle/MapArticleContainer';
 import Header from '../../components/Header';
 
-const Map = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst, indexToGoSecond }) => {
+
+const Map = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst }) => {
+
+
     let code;
     if (content) {
         const currentStep = content[currentStepIndex];
