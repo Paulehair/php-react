@@ -3,12 +3,18 @@ require_once "conn.php";
 
 $sql = "SELECT
       `id`,
+      `img_country`,
       `title`, 
-      `subtitle`, 
-      `img`
-        FROM 
-          `map_article` 
-        ";
+      `subtitle`,
+      `img`,
+      `video`,
+      `text1`,
+      `text2`,
+      `text3`,
+      `source`
+      FROM 
+        `map_article` 
+      ";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $rows = array();

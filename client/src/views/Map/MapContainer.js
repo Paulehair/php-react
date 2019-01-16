@@ -11,8 +11,10 @@ class MapContainer extends Component {
         this.state = ({
             content: null,
             currentStep: this.props.dataFromApp.currentIndex,
+            currentSlide: this
         })
     }
+
 
     slug = createRef();
     indexToGoFirst = createRef();
@@ -31,21 +33,25 @@ class MapContainer extends Component {
         pushHistory(this, this.slug.current.value);
     }
 
+    sliderNav = element => {
+        // element.preventDefault();
+    }
+
     render() {
         const { content, currentStep } = this.state;
         return (
-            <Fragment>
+            <div className="map">
                 <Header />
-                <Map
+                {/* <Map
                     content={content}
                     currentStepIndex={currentStep}
                     changeCurrentStep={this.changeCurrentStep}
                     slug={this.slug}
                     indexToGoFirst={this.indexToGoFirst}
                     indexToGoSecond={this.indexToGoSecond}
-                />
+                /> */}
                 <MapArticle />
-            </Fragment>
+            </div>
         );
     }
 }
