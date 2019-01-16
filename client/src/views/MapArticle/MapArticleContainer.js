@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import MapArticle from './MapArticle';
 import { fetchMapArticle } from '../../helpers/api';
 
-
-
-
 class MapArticleContainer extends Component {
     constructor(props) {
         super(props)
@@ -22,7 +19,7 @@ class MapArticleContainer extends Component {
     }
 
     render() {
-        const { content , sliderIndex} = this.state;
+        const { content, sliderIndex } = this.state;
         return (
             <MapArticle
                 content={content}
