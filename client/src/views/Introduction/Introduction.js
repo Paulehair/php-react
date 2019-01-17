@@ -3,7 +3,7 @@ import React from 'react';
 const Introduction = ({ changeCurrentStep, slug, indexToGo, percentage, display }) => {
 
     return (
-        <div className={"page"}>
+        <div className="page">
             <div className={"introduction"}>
                 {/* <div className={"introduction-video"}>
                     <video autoPlay muted loop>

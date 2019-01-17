@@ -5,7 +5,7 @@ const Transition = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
     let codeThirdChoice;
     if (content) {
         const currentStep = content[currentStepIndex];
-        code = <div key={currentStep.id}>
+        code = <div className="container" key={currentStep.id}>
             <h1>{currentStep.title}</h1>
             <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
             <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />

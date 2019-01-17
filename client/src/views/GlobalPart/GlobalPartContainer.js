@@ -32,7 +32,7 @@ class GlobalPartContainer extends Component {
     render() {
         const { content, currentStep } = this.state;
         return (
-            <div className={"page"}>
+            <div className="page">
                 <GlobalPart
                     content={content}
                     currentStepIndex={currentStep}
