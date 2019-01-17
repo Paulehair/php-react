@@ -58,7 +58,6 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
 
     return content && (
         <div>
-            <Header />
             {code}
         </div>
     );

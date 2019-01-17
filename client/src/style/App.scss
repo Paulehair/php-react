@@ -6,6 +6,7 @@
 //import components
 @import "./components/header.scss";
 @import "./components/button.scss";
+@import "./components/cardLink.scss";
 @import "./components/map.scss";
 
 //import views
@@ -17,9 +18,3 @@
 // Dependencies 
 @import "~slick-carousel/slick/slick.css"; 
 @import "~slick-carousel/slick/slick-theme.css";
-
-html {
-  font-family: "lato";
-  color: #fff;
-  background-color: #000;
-}

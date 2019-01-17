@@ -27,7 +27,6 @@ const Article = ({ articles, goToNextOption, currentArticleIndex, slug, index })
 
     return articles && (
         <div className="article">
-            <Header />
             {code}
         </div>
     );

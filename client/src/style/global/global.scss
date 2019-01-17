@@ -1,7 +1,11 @@
 body {
+    background-color: $dark-blue;
     font-family: $text;
+    font-size: 14px;
     color: #fff;
-    background-color: #000;
+    @media screen and (min-width: $bp-tablet + 1) {
+        font-size: 18px;
+    }
 }
 
 // page class necessary for transition between components
@@ -10,6 +14,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
 }
 
 // transition
@@ -35,17 +40,25 @@ body {
 }
 
 .container {
-    padding: 60px 20px;
+    padding: 0 140px;
     margin: auto;
-    max-width: $bp-desktop;
+}
+
+.block {
+
 }
 
 .title {
-    @include title;
-}
-
-.subtitle {
-    @include subtitle;
+    font-family: $title;
+    font-size: 32px;
+    line-height: 45px;
+    letter-spacing: -0.25px;
+    margin-bottom: 15px;
+    @media screen and (min-width: $bp-tablet + 1) {
+        font-size: 86px;
+        line-height: 90px;
+        margin-bottom: 25px;
+    }
 }
 
 .strong {
