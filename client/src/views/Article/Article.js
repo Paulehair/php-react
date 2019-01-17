@@ -8,12 +8,15 @@ const Article = ({ articles, goToNextOption, currentArticleIndex, slug, index })
         const currentArticle = articles[currentArticleIndex];
         code = <div className={"container"} key={currentArticle.id}>
             <h1 className={"article-title title"}>{currentArticle.title}</h1>
-            <h4 className={"article-subtitle subtitle"}>{currentArticle.subtitle}</h4>
             <p className={"article-text"}>{currentArticle.text1}</p>
             <div className="article-imgContainer">
                 <img className={"article-img"} src="./images/03-article/img.png" alt="" />
             </div>
             <p className={"article-text"}>{currentArticle.text2}</p>
+            <p className={"article-text"}>{currentArticle.text3}</p>
+            <p className={"article-text"}>{currentArticle.text4}</p>
+            <p className={"article-text"}>{currentArticle.text5}</p>
+            <p className={"article-text"}>{currentArticle.text6}</p>
             <div className="container">
                 <button onClick={() => goToNextOption(index)} className={"button"}>{currentArticle.first_choice}</button>
             </div>

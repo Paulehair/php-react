@@ -24,7 +24,7 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
                     <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
                     <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
                 </div>
-                {currentStep.secondChoice !== null &&
+                {currentStep.second_choice !== null &&
                     <div className={"globalpart-btn"}>
                         <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.second_choice}</button>
                         <input ref={indexToGoSecond} type="hidden" value={currentStep.second_index} />
