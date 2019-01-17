@@ -28,7 +28,7 @@ const EndPage = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGo
                 </div>
                 <input ref={indexToGoFirst} type="hidden" defaultValue={currentStep.first_index} />
                 <input ref={indexToGoSecond} type="hidden" defaultValue={currentStep.second_index} />
-                <input ref={slug} type="hidden" defaultValue={'globalpart'} />
+                <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
             </div>;
     }
 
