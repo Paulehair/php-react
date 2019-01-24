@@ -1,17 +1,82 @@
 .cardLink {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: calc(50% - 20px);
+    max-width: 260px;
+    @media screen and (max-width: $bp-desktop-large) {
+        width: 100%;
+    }
+
+    &:hover .cardLink-text span::after {
+        background: $main-color;
+        animation: cardLink-hover 500ms ease-out both;
+    }
+
+    &:first-child {
+        margin-right: 20px;
+        @media screen and (max-width: $bp-desktop-large) {
+            margin-right: 0;
+            margin-bottom: 50px;
+        }
+    }
     
     &-imgContainer {
-
+        margin-bottom: 20px;
+        @media screen and (max-width: $bp-desktop-large) {
+            margin-bottom: 6px;
+        }
         img {
-
+            width: 100%;
         }
     }
 
     &-text {
+        
+        span {
+            position: relative;
 
+            &::after {
+                position: absolute;
+                content: '';
+                left: 0;
+                bottom: -10px;
+                width: 80%;
+                height: 1px;
+                background: #ffffff;
+                animation:  cardLink-hoverLeft 300ms ease-in-out;
+            }
+        }
     }
 
     &-title {
+        margin-top: 35px;
         white-space: pre;
+        text-transform: uppercase;
+        line-height: 22px;
+        @media screen and (max-width: $bp-desktop-large) {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    }
+}
+
+@keyframes cardLink-hover {
+    from {
+        width: 80%
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes cardLink-hoverLeft {
+    from {
+        width: 100%
+    }
+
+    to {
+        width: 80%;
     }
 }

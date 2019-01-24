@@ -1,27 +1,73 @@
 .endpage { 
+    display: flex;
+    align-items: center;
+    height: 100%;
+    @media screen and (max-width: $bp-mobile) {
+        flex-direction: column;
+    }
 
-    .background {
+    &-background {
         position: fixed;
         z-index: -1;
         height: 100%;
         width: 100%;
         background: url(/images/02-endpage/background.png) no-repeat right;
         background-size: cover;
+        @media screen and (max-width: $bp-tablet) {
+            background: none;
+        }
+    }
+    
+    .block {
+        width: 50%;
+        min-height: min-content;
+        @media screen and (max-width: $bp-mobile) {
+            width: 100%;
+        }
+
+        &:first-child {
+            padding: 0 6%;
+            @media screen and (max-width: $bp-mobile) {
+                padding: 0;
+                margin-bottom: 60px;
+            }
+        }
+        &:nth-child(2) {
+            display: flex;
+            align-items: center;
+            @media screen and (max-width: $bp-desktop-large) {
+                flex-direction: column;
+            }
+        }
     }
 
-    &-title {}
+    &-title {
+        font-size: 32px;
+        line-height: 39px;
+        margin-bottom: 60px;
+    }
 
     &-text {
+        width: 100%;
+         @media screen and (min-width: $bp-tablet + 1) {
+            width: 84%;
+        }
 
         &::before,
         &::after {
-
+            content: '';
+            display: flex;
+            margin: 0 auto;
+            height: 30px;
+            width: 1px;
+            background: #ffffff;
+            opacity: 0.4;
         }
         &::before {
-
+            margin-bottom: 40px;
         }
         &::after {
-
+            margin-top: 40px;
         }
     }
 }
