@@ -1,14 +1,14 @@
 import React, { Component, createRef, Fragment } from 'react';
 import Article from './Article';
 import { fetchData } from '../../helpers/api';
-import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
+import { parseToNumber, pushHistory, setIndex , getStorage , setStorage} from '../../helpers/helpers';
 
 class ArticleContainer extends Component {
     constructor(props) {
         super(props)
         this.state = ({
             articles: null,
-            currentArticle: this.props.dataFromApp.currentIndex,
+            currentArticle: getStorage('articleIndex') || this.props.dataFromApp.currentIndex,
         })
     }
 
@@ -22,6 +22,10 @@ class ArticleContainer extends Component {
         this.setState({
             articles: data,
         })
+
+        if(this.props.dataFromApp.currentIndex > getStorage('articleIndex') || getStorage('articleIndex') == null){
+            setStorage('articleIndex' , this.props.dataFromApp.currentIndex);
+        }
     }
 
     //function to rederect to right component at the right instance

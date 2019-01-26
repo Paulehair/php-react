@@ -1,6 +1,7 @@
 import React from 'react';
 import SliderArrow from './SliderArrow';
 import Slider from 'react-slick';
+import Globe from './Globe';
 
 
 const sliderSettings = {
@@ -24,7 +25,8 @@ const MapArticle = ({ content }) => {
                 {content.map(con => {
                     return (
                         <div className="map-slides" key={con.id}>
-                            <img src='./images/05-map/map.png' alt="map" />
+                            {/* <img src='./images/05-map/map.png' alt="map" /> */}   
+                            <Globe location={con.img_country} />      
                             <div className="map-content">
                                 <h2>{con.title}</h2>
                                 <h4>{con.subtitle}</h4>

@@ -1,14 +1,15 @@
 import React, { Component, createRef, Fragment } from 'react';
 import GlobalPart from './GlobalPart';
 import { fetchGlobalPart } from '../../helpers/api';
-import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
+import { parseToNumber, pushHistory, setIndex , getStorage , setStorage} from '../../helpers/helpers';
+
 
 class GlobalPartContainer extends Component {
     constructor(props) {
         super(props)
         this.state = ({
             content: null,
-            currentStep: this.props.dataFromApp.currentIndex,
+            currentStep: getStorage('globalPartIndex') || this.props.dataFromApp.currentIndex,
         })
     }
 
@@ -21,6 +22,9 @@ class GlobalPartContainer extends Component {
         this.setState({
             content: data,
         })
+        if(this.props.dataFromApp.currentIndex > getStorage('globalPartIndex') || getStorage('globalPartIndex') == null){
+            setStorage('globalPartIndex' , this.props.dataFromApp.currentIndex);
+        }
     }
 
     changeCurrentStep = (index) => {
