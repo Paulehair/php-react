@@ -1,65 +1,76 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Header from '../../components/Header';
 
 const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst, indexToGoSecond }) => {
     let code;
     if (content) {
         const currentStep = content[currentStepIndex];
-        code = <div key={currentStep.id} className={"globalpart"}>
-            <div className={"container"}>
-                <h1 className={"globalpart-title title"}>{currentStep.title}</h1>
-                <p className={"globalpart-title title strong"}>{currentStep.title_span}</p>
+        code = <div key={currentStep.id} className={"globalpart container"}>
 
-                <div className={"globalpart-main"}>
-                    <p className={"globalpart-main-text"}>{currentStep.main_text1}</p>
-                    <p className={"globalpart-main-text"}>{currentStep.main_text2}</p>
+            <h1 className={"globalpart-title title"}>{currentStep.title}
+                <br/>
+                <span className={"strong"}>{currentStep.title_span}</span>
+            </h1>
+
+            <p className={"globalpart-text1"}>{currentStep.main_text1}</p>
+
+            <p className={"globalpart-text2"}>{currentStep.main_text2}</p>
+
+            <div className={"globalpart-quotationContainer"}>
+                <p className={"globalpart-quotation"}>{currentStep.introduction}</p>
+                <p className={"globalpart-source"}>{currentStep.introduction2}</p>
+            </div>
+
+            <div className={"globalpart-slider"}>
+                <div className={"globalpart-slider-dots"}>
+                    <span className={"dot active"}></span>
+                    <span className={"dot"}></span>
+                    <span className={"dot"}></span>
                 </div>
 
-                <div>
-                    <img src="" alt="" />
-                    <p>{currentStep.introduction}</p>
-                    <p>{currentStep.introduction2}</p>
+                <div className={"globalpart-slide active"}>
+                    <p className={"globalpart-slide-title"}>{currentStep.subtitle1}</p>
+                    <p className={"globalpart-slide-text"}>{currentStep.subcontent1}</p>
                 </div>
 
-                <div className={"globalpart-main"}>
-                    <p className={"globalpart-main-text"}>{currentStep.subtitle1}</p>
-                    <p className={"globalpart-main-text"}>{currentStep.subcontent1}</p>
-                </div>
-
-                <div className={"globalpart-main"}>
-                    <p className={"globalpart-main-text"}>{currentStep.subtitle2}</p>
-                    <p className={"globalpart-main-text"}>{currentStep.subcontent2}</p>
-                    <p className={"globalpart-main-text"}>{currentStep.subcontent21}</p>
+                <div className={"globalpart-slide"}>
+                    <p className={"globalpart-slide-title"}>{currentStep.subtitle2}</p>
+                    <p className={"globalpart-slide-text"}>{currentStep.subcontent2}</p>
+                    <p className={"globalpart-slide-text"}>{currentStep.subcontent21}</p>
                 </div>
 
                 {currentStep.subtitle3 !== null &&
-                    <div className={"globalpart-main"}>
-                        <p className={"globalpart-main-text"}>{currentStep.subtitle3}</p>
-                        <p className={"globalpart-main-text"}>{currentStep.subcontent3}</p>
-                        <p className={"globalpart-main-text"}>{currentStep.subcontent31}</p>
+                    <div className={"globalpart-slide"}>
+                        <p className={"globalpart-slide-title"}>{currentStep.subtitle3}</p>
+                        <p className={"globalpart-slide-text"}>{currentStep.subcontent3}</p>
+                        <p className={"globalpart-slide-text"}>{currentStep.subcontent31}</p>
                     </div>
                 }
+            </div>
 
-                <div className={"globalpart-btn"}>
-                    <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
-                    <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
-                </div>
-
+            <div className={"globalpart-btn group-btn"}>
+                <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
+                <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
                 {currentStep.second_choice !== null &&
-                    <div className={"globalpart-btn"}>
+                    <Fragment>
                         <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.second_choice}</button>
                         <input ref={indexToGoSecond} type="hidden" value={currentStep.second_index} />
-                    </div>
+                    </Fragment>
                 }
-                <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
             </div>
-        </div>;
+
+           
+            <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
+         </div>
     }
 
     return content && (
-        <div>
+        <Fragment>
+            <div className={"globalpart-imgContainer"}>
+                <img className={"globalpart-img"} src="./images/03-globalpart/maladieGP.png" alt="image" />
+            </div>
             {code}
-        </div>
+        </Fragment>
     );
 }
 

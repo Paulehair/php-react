@@ -24,7 +24,9 @@ const Introduction = ({ changeCurrentStep, slug, indexToGo, percentage, display 
                         <p>CHARGEMENT <span>{percentage}%</span></p>
                     </div>
                     {display &&
-                        <button onClick={() => changeCurrentStep()} className={"button"}>commencer</button>
+                        <a onClick={() => changeCurrentStep()} className={"start"}>
+                            <img src="./images/01-introduction/start.png" alt="start"/>
+                        </a>
                     }
                 </div>
                 <input ref={indexToGo} type="hidden" defaultValue={0} />

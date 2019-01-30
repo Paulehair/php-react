@@ -10,7 +10,11 @@
 
     &:hover .cardLink-text span::after {
         background: $main-color;
-        animation: cardLink-hover 500ms ease-out both;
+        animation: hover-span 500ms ease-out both;
+    }
+    &:hover .cardLink-img {
+        transform: scale(1.1);
+        animation: hover-img 500ms ease-out both;
     }
 
     &:first-child {
@@ -23,11 +27,13 @@
     
     &-imgContainer {
         margin-bottom: 20px;
+        overflow: hidden;
         @media screen and (max-width: $bp-desktop-large) {
             margin-bottom: 6px;
         }
         img {
             width: 100%;
+            animation: out-img 300ms ease-in-out;
         }
     }
 
@@ -44,7 +50,7 @@
                 width: 80%;
                 height: 1px;
                 background: #ffffff;
-                animation:  cardLink-hoverLeft 300ms ease-in-out;
+                animation:  out-span 300ms ease-in-out;
             }
         }
     }
@@ -61,7 +67,7 @@
     }
 }
 
-@keyframes cardLink-hover {
+@keyframes hover-span {
     from {
         width: 80%
     }
@@ -71,12 +77,32 @@
     }
 }
 
-@keyframes cardLink-hoverLeft {
+@keyframes out-span {
     from {
         width: 100%
     }
 
     to {
         width: 80%;
+    }
+}
+
+@keyframes hover-img {
+    from {
+        transform: scale(1.0);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes out-img {
+    from {
+        transform: scale(1.1);
+    }
+
+    to {
+        transform: scale(1.0);
     }
 }
