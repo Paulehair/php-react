@@ -26,7 +26,7 @@
     }
     &:hover,
     &:active {
-        background: $main-color;
+        background: $main-color !important;
         height: 100%;
         color: #ffffff;
         transition: 0.4s;

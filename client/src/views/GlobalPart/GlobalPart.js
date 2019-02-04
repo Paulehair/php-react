@@ -58,8 +58,7 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
                     </Fragment>
                 }
             </div>
-
-           
+            
             <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
          </div>
     }
