@@ -8,41 +8,6 @@
     }
 }
 
-@keyframes mirror {
-    from {
-        -moz-transform: scaleX(-1);
-        -o-transform: scaleX(-1);
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
-        filter: FlipH;
-        -ms-filter: "FlipH";
-    }
-
-    to {
-        -moz-transform: scaleX(1);
-        -o-transform: scaleX(1);
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1);
-        filter: FlipH;
-        -ms-filter: "FlipH";
-    }
-}
-
-@keyframes expande {
-    0% {
-        width: 0;
-        opacity: 0;
-    }
-
-    80% {
-        opacity: 1;
-    }
-
-    100% {
-        width: 25px;
-    }
-}
-
 .introduction {
     height: 100vh;
     text-align: center;
@@ -63,12 +28,8 @@
     &-title {
         font-family: "lato-light";
         font-size: 25px;
-        margin: 15px auto;
-        width: 150px;
-
-        &-letter {
-            display: inline-block;
-        }
+        letter-spacing: 8px;
+        margin-bottom: 10px;
     }
 
     &-loader {
@@ -92,25 +53,5 @@
             letter-spacing: 2px;
             margin-bottom: 70px;
         }
-    }
-}
-
-.ghost {
-    animation: expande 2000ms ease both 2000ms;
-}
-
-.mirror {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
-    animation: mirror 500ms ease both 4000ms;
-}
-
-.start {
-    img {
-        width: 100px;
     }
 }

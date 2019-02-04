@@ -1,14 +1,14 @@
-import React, { Component, createRef, Fragment } from 'react';
+import React, { Component, createRef } from 'react';
 import Transition from './Transition';
 import { fetchTransition } from '../../helpers/api';
-import { parseToNumber, pushHistory, setIndex , getStorage , setStorage} from '../../helpers/helpers';
+import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
 class TransitionContainer extends Component {
     constructor(props) {
         super(props)
         this.state = ({
             content: null,
-            currentStep: getStorage('transitionIndex') || this.props.dataFromApp.currentIndex,
+            currentStep: this.props.dataFromApp.currentIndex,
         })
     }
 
@@ -22,9 +22,6 @@ class TransitionContainer extends Component {
         this.setState({
             content: data,
         })
-        if(this.props.dataFromApp.currentIndex > getStorage('transitionIndex') || getStorage('transitionIndex') == null){
-            setStorage('transitionIndex' , this.props.dataFromApp.currentIndex);
-        }
     }
 
     changeCurrentStep = (index) => {

@@ -4,7 +4,6 @@ require_once "conn.php";
 $sql = "SELECT
       `id`,
       `title`,
-      `text1`,
       `first_choice`,
       `first_index`,
       `second_choice`,

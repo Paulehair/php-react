@@ -7,7 +7,6 @@ class MapArticleContainer extends Component {
         super(props)
         this.state = ({
             content: null,
-            sliderIndex: 0
         })
     }
 
@@ -19,11 +18,10 @@ class MapArticleContainer extends Component {
     }
 
     render() {
-        const { content, sliderIndex } = this.state;
+        const { content } = this.state;
         return (
             <MapArticle
                 content={content}
-                sliderIndex={sliderIndex}
             />
         );
     }

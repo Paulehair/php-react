@@ -5,16 +5,16 @@ $sql = "SELECT
       `id`,
       `img_country`,
       `title`, 
-      `subtitle`,
+      `subtitle`, 
       `img`,
       `video`,
       `text1`,
       `text2`,
       `text3`,
       `source`
-      FROM 
-        `map_article` 
-      ";
+        FROM 
+          `map_article` 
+        ";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $rows = array();

@@ -5,10 +5,24 @@ $bp-desktop: 1024px;
 $bp-desktop-large: 1200px;
 
 //Color
-$main-color: #FF6663;
-$dark-blue: #1E1F32;
-$lightgrey: #b9b9b9;
+$main-color: #FF5C5A;
 
 //Font
-$title: 'lato-bold';
-$text: 'lato';
+$title: 'lato';
+$text: 'lato-light';
+
+@mixin title {
+    font-family: $title;
+    font-size: 26px;
+    margin-bottom: 15px;
+    @media screen and (min-width: $bp-tablet + 1) {
+        font-size: 42px;
+        margin-bottom: 25px;
+    }
+}
+
+@mixin subtitle {
+    font-family: $text;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
