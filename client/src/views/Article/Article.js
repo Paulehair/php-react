@@ -2,30 +2,46 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../components/Header';
 
-const Article = ({ articles, goToNextOption, currentArticleIndex, slug, index }) => {
+const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGoFirst, indexToGoSecond }) => {
     let code;
-    if (articles) {
-        const currentArticle = articles[currentArticleIndex];
-        code = <div className={"article container"} key={currentArticle.id}>
-            <h1 className={"article-title title strong"}>{currentArticle.title}</h1>
-            <p className={"article-text"}>{currentArticle.text1}</p>
+    if (content) {
+        const currentStep = content[currentStepIndex];
+        code = <div className={"article container"} key={currentStep.id}>
+            <h1 className={"article-title title strong"}>{currentStep.title}</h1>
+            <p className={"article-text1"}>{currentStep.text1}</p>
             <div className="article-imgContainer">
-                <img className={"article-img"} src="./images/03-article/img.png" alt="" />
+                <img className={"article-img"} src="./images/04-article/algorithmes.png" alt="" />
             </div>
-            <p className={"article-text"}>{currentArticle.text2}</p>
-            <p className={"article-text"}>{currentArticle.text3}</p>
-            <p className={"article-text"}>{currentArticle.text4}</p>
-            <p className={"article-text"}>{currentArticle.text5}</p>
-            <p className={"article-text"}>{currentArticle.text6}</p>
-            <div className="container">
-                <button onClick={() => goToNextOption(index)} className={"button"}>{currentArticle.first_choice}</button>
+            <p className={"article-text2"}>{currentStep.text2}</p>
+            <p className={"article-text3"}>{currentStep.text3}</p>
+
+            <div className="article-moreContainer">
+                <label for="show" className="article-moreText">
+                    En savoir plus
+                </label>
+                    <input id="show" className="show" type="checkbox" />
+                <div className="article-more">
+                    <p className={"article-text4"}>{currentStep.text4}</p>
+                    <p className={"article-text5"}>{currentStep.text5}</p>
+                    <p className={"article-text6"}>{currentStep.text6}</p>
+                </div>
             </div>
-            <input ref={index} type="hidden" defaultValue={currentArticle.first_index} />
-            <input ref={slug} type="hidden" defaultValue={currentArticle.slug} />
+
+            <div className={"article-btn group-btn"}>
+                <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
+                {currentStep.second_choice !== null &&
+                    <Fragment>
+                        <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.second_choice}</button>
+                    </Fragment>
+                }
+            </div>
+            <input ref={indexToGoFirst} type="hidden" defaultValue={currentStep.first_index} />
+            <input ref={indexToGoSecond} type="hidden" defaultValue={currentStep.second_index} />
+            <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
         </div>;
     }
 
-    return articles && (
+    return content && (
         <Fragment>
             {code}
         </Fragment>

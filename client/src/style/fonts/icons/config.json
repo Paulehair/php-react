@@ -39,6 +39,12 @@
       "css": "circle-thin",
       "code": 61915,
       "src": "fontawesome"
+    },
+    {
+      "uid": "70370693ada58ef0a60fa0984fe8d52a",
+      "css": "plus",
+      "code": 59393,
+      "src": "entypo"
     }
   ]
 }
