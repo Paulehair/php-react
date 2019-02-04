@@ -7,20 +7,21 @@ class ArticleContainer extends Component {
     constructor(props) {
         super(props)
         this.state = ({
-            articles: null,
-            currentArticle: getStorage('articleIndex') || this.props.dataFromApp.currentIndex,
+            content: null,
+            currentStep: getStorage('articleIndex') || this.props.dataFromApp.currentIndex,
         })
     }
 
     //create reference to get slug inside input hidden in Article.js
     slug = createRef();
-    index = createRef();
+    indexToGoFirst = createRef();
+    indexToGoSecond = createRef();
 
     //fetch data from server using api.js
     async componentDidMount() {
         const data = await fetchData()
         this.setState({
-            articles: data,
+            content: data,
         })
 
         if(this.props.dataFromApp.currentIndex > getStorage('articleIndex') || getStorage('articleIndex') == null){
@@ -29,22 +30,23 @@ class ArticleContainer extends Component {
     }
 
     //function to rederect to right component at the right instance
-    goToNextOption = index => {
+    changeCurrentStep = (index) => {
         let indexToNumber = parseToNumber(index.current.value);
         setIndex(this, indexToNumber);
         pushHistory(this, this.slug.current.value);
     };
 
     render() {
-        const { articles, currentArticle } = this.state;
+        const { content, currentStep } = this.state;
         return (
             <div className="page">
                 <Article
-                    articles={articles}
-                    currentArticleIndex={currentArticle}
+                    content={content}
+                    currentStepIndex={currentStep}
+                    changeCurrentStep={this.changeCurrentStep}
                     slug={this.slug}
-                    index={this.index}
-                    goToNextOption={this.goToNextOption}
+                    indexToGoFirst={this.indexToGoFirst}
+                    indexToGoSecond={this.indexToGoSecond}
                 />
             </div>
         );

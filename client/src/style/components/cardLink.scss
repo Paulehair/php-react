@@ -4,6 +4,7 @@
     flex-grow: 1;
     width: calc(50% - 20px);
     max-width: 260px;
+    cursor: pointer;
     @media screen and (max-width: $bp-desktop-large) {
         width: 100%;
     }
