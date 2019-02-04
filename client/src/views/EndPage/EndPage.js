@@ -1,42 +1,46 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../../components/Header';
 
 const EndPage = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst, indexToGoSecond }) => {
     let code;
     if (content) {
         const currentStep = content[currentStepIndex];
         code =
-            <div key={currentStep.id} className={"container"}>
-                <div className={"endpage-title title"}>
-                    <h1>{currentStep.title}</h1>
-                    <h1>{currentStep.title_span}</h1>
+            <div key={currentStep.id} className="endpage container">
+
+                <div className="block">
+                    <h1 className="endpage-title title strong">{currentStep.title}</h1>
+                    <p className="endpage-text">{currentStep.text1}</p>
                 </div>
-                <div className={"endpage-text"}>
-                    <p>{currentStep.text1}</p>
-                    <p>{currentStep.text2}</p>
+
+                <div className="block">
+                    <a onClick={() => changeCurrentStep(indexToGoFirst)} className="cardLink">
+                        <div className="cardLink-imgContainer">
+                            <img className="cardLink-img" src="./images/02-endpage/maladie.png" alt="image"/>
+                        </div>
+                        <p className="cardLink-text"><span>{currentStep.first_choice}</span></p>
+                        <h4 className="cardLink-title">{currentStep.cardLink_title1}</h4>
+                    </a>
+                    <a onClick={() => changeCurrentStep(indexToGoSecond)} className="cardLink">
+                        <div className="cardLink-imgContainer">
+                            <img className="cardLink-img" src="./images/02-endpage/handicap.png" alt="image" />
+                        </div>
+                        <p className="cardLink-text"><span>{currentStep.second_choice}</span></p>
+                        <h4 className="cardLink-title">{currentStep.cardLink_title2}</h4>
+                    </a>
                 </div>
-                <div className={"endpage-reference"}>
-                    <p>{currentStep.source}</p>
-                </div>
-                <div className={"endpage-question"}>
-                    <p>{currentStep.question}</p>
-                </div>
-                <div className={"endpage-choice"}>
-                    <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"endpage-choice-btn button"}>{currentStep.first_choice}</button>
-                    <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"endpage-choice-btn button"}>{currentStep.second_choice}</button>
-                </div>
+
                 <input ref={indexToGoFirst} type="hidden" defaultValue={currentStep.first_index} />
                 <input ref={indexToGoSecond} type="hidden" defaultValue={currentStep.second_index} />
-                <input ref={slug} type="hidden" defaultValue={'globalpart'} />
-            </div>;
+                <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
+            </div>
     }
 
     return content && (
-        <div className={"endpage"}>
-            <Header />
+        <Fragment>
+            <div className="endpage-background"></div>
             {code}
-        </div>
+        </Fragment>
     );
 }
 

@@ -1,47 +1,173 @@
 .globalpart {
-    background: url(/images/03-globalpart/background.png) top right no-repeat fixed;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
 
+    &-imgContainer {
+        height: 140px;
+        overflow: hidden;
+        @media screen and (min-width: $bp-desktop +1) {
+            position: absolute;
+            top: 0;
+            right: 50%;
+            overflow: visible;
+            width: 34%;
+            height: auto;
+            max-width: 450px;
+        }
+    }
+    &-img {
+        width: 100%;
+    }
+
+    & > * {
+        order: 1000;
+    }
+
+    &-title {
+        margin-top: 15px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        order: 1;
+        width: 100%;
+        @media screen and (min-width: $bp-desktop +1) {
+            margin: 60px 0;
+        }
+    }
+    &-text1,
+    &-text2 {
+        margin-bottom: 80px;
+        @media screen and (min-width: $bp-mobile +1) {
+            width: calc(50% - 20px);
+        }
+        @media screen and (min-width: $bp-desktop +1) {
+            width: 40%;
+        }
+    }
+    &-text1 {
+        order: 2;
+        @media screen and (min-width: $bp-mobile +1) and (max-width : $bp-desktop) {
+            margin-right: 40px;
+        }
+    }
+    &-text2 {
+        order: 3;
+        @media screen and (min-width: $bp-desktop +1) {
+            order: 4;
+        }
+    }
+    &-quotationContainer {
+        order: 5;
+        margin: 40px 0;
+        text-align: center;
+        @media screen and (min-width: $bp-desktop +1) {
+            order: 2;
+            width: 40%;
+            margin: 0;
+            margin-left: auto;
+        }
+    }
     &-quotation {
-        font-size: 20px;
-
-        &-span {
-            font-family: 'lato';
-        }
-
-        &-colored {
-            font-size: 28px;
-            font-family: 'lato';
-        }
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 40px;
     }
-
     &-source {
-        margin: 20px 0;
+        font-size: 14px;
+        font-style: italic;
+        line-height: 18px;
+        color: #b6b6b6d3;
+    }
+    &-slider {
+        order: 4;
+        position: relative;
+        background: #ffffff;
+        margin: 0 -20px;
+        padding: 40px 20px 160px;
+        @media screen and (min-width: $bp-mobile + 1) {
+            margin: 0 -40px;
+            padding: 40px 40px 160px;
+        }
+        @media screen and (min-width: $bp-tablet + 1) {
+            margin: 0 -80px;
+        }
+        @media screen and (min-width: $bp-desktop +1) {
+            order: 5;
+            width: 50%;
+            margin: 0;
+            margin-left: auto;
+            padding: 80px 100px 160px;
+        }
 
-        &-text {
-            font-style: italic;
-            font-size: 14px;
+        &::after {
+            position: absolute;
+            content: 'scroll';
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%) rotate(269deg);
+            color: $lightgrey;
+            font-size: 12px;
+            text-transform: uppercase;
+            animation: scroll 2000ms ease-in-out infinite;
+        }
+
+        &-dots {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 30px;
+            .dot {
+                display: block;
+                height: 12px;
+                width: 12px;
+                background: $lightgrey;
+                border-radius: 50%;
+                &:not(:last-child) {
+                    margin-right: 10px;
+                }
+
+                &.active {
+                    background: #000000;
+                }
+            }
+        }
+
+        .globalpart-slide {
+            color: #000000;
+            display: none;
+
+            &.active {
+                display: block;
+            }
+
+            &-title {
+                font-weight: 600;
+                margin-bottom: 40px;
+            }
+
+            &-text {
+                line-height: 22px;
+            }
         }
     }
-
-    &-main {
-        margin-bottom: 20px;
-
-        &-text {
-            font-size: 16px;
-            line-height: 20px;
-            margin-bottom: 10px;
-        }
-    }
-
-    &-question {
-        &-text {
-            font-family: 'lato';
-            font-size: 24px;
-            text-align: center;
-        }
-    }
-
     &-btn {
-        margin: 20px;
+        width: calc(100% + 40px);
+        margin: 0 -20px;
+        order: 6;
+        @media screen and (min-width: $bp-desktop +1) {
+            width: 50%;
+            margin: -80px 0 0;
+        }
+    }
+}
+
+@keyframes scroll {
+    0% {
+        bottom: 80px;
+    }
+    50% {
+        bottom: 70px;
+    }
+    100% {
+        bottom: 80px;
     }
 }

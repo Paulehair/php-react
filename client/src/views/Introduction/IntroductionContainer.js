@@ -1,6 +1,6 @@
 import React, { Component, createRef } from 'react';
 import Introduction from './Introduction';
-import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
+import { parseToNumber, pushHistory, setIndex} from '../../helpers/helpers';
 
 class IntroductionContainer extends Component {
     constructor(props) {
@@ -19,6 +19,9 @@ class IntroductionContainer extends Component {
     slug = createRef();
     indexToGo = createRef();
 
+    componentDidMount() {
+        localStorage.clear();
+    }
     changeCurrentStep = () => {
         let indexToNumber = parseToNumber(this.indexToGo.current.value);
         setIndex(this, indexToNumber);

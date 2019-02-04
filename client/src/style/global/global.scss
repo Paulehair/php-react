@@ -1,7 +1,13 @@
 body {
+    background-color: $dark-blue;
     font-family: $text;
+    font-size: 14px;
+    line-height: 29px;
     color: #fff;
-    background-color: #000;
+    @media screen and (min-width: $bp-tablet + 1) {
+        font-size: 18px;
+        line-height: 28px;
+    }
 }
 
 // page class necessary for transition between components
@@ -10,6 +16,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
 }
 
 // transition
@@ -35,17 +42,36 @@ body {
 }
 
 .container {
-    padding: 60px 20px;
-    margin: auto;
-    max-width: $bp-desktop;
+    padding: 0 20px;
+    min-height: min-content;
+    @media screen and (min-width: $bp-mobile + 1) {
+        padding: 0 40px;
+    }
+    @media screen and (min-width: $bp-tablet + 1) {
+        padding: 0 80px;
+    }
+    @media screen and (min-width: $bp-desktop + 1) {
+        padding: 0 140px;
+    }
 }
 
 .title {
-    @include title;
+    font-family: $title;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: -0.25px;
+    margin-bottom: 15px;
+    @media screen and (min-width: $bp-tablet + 1) {
+        font-size: 86px;
+        line-height: 100px;
+        margin-bottom: 25px;
+    }
 }
 
 .subtitle {
-    @include subtitle;
+    font-family: $title;
+    font-size: 16px;
+    line-height: 20px;
 }
 
 .strong {
