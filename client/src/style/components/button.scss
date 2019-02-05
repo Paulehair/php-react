@@ -3,6 +3,7 @@
     justify-content: center;
     height: 80px;
 }
+
 .button {
     display: block;
     border: none;
@@ -16,7 +17,7 @@
     font-weight: 600;
     height: 80%;
     width: 100%;
-    cursor: pointer;
+    cursor: none;
     text-align: center;
     transition: 0.4s;
     max-width: 360px;
@@ -24,6 +25,7 @@
     &:first-child {
         border-right: 1px solid $lightgrey;
     }
+
     &:hover,
     &:active {
         background: $main-color !important;
@@ -31,6 +33,7 @@
         color: #ffffff;
         transition: 0.4s;
     }
+
     &.hidden {
         display: none;
     }

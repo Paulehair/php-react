@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;
 
-    & > * {
+    &>* {
         order: 1000;
     }
 
@@ -13,32 +13,42 @@
         margin-bottom: 40px;
         text-transform: uppercase;
         width: 100%;
+        font-size: 26px;
+
         @media screen and (min-width: $bp-desktop +1) {
             margin: 60px 0;
+            font-size: 32px;
         }
     }
+
     &-imgContainer {
         order: 3;
         margin: auto;
+
         @media screen and (max-width: $bp-mobile) {
             margin: 0 -20px;
         }
+
         @media screen and (min-width: $bp-desktop + 1) {
             order: 5;
             width: calc(50% + 140px);
             margin-left: auto;
             margin-right: -140px;
         }
+
         img {
             width: 100%;
         }
     }
+
     &-text1 {
         order: 2;
         margin-bottom: 40px;
+
         @media screen and (max-width: $bp-mobile) {
             text-align: center;
         }
+
         @media screen and (min-width: $bp-desktop + 1) {
             order: 3;
             width: 50%;
@@ -46,14 +56,17 @@
             margin-left: auto;
         }
     }
+
     &-text2 {
         order: 4;
         margin: 60px 0;
+
         @media screen and (min-width: $bp-desktop + 1) {
             order: 2;
             width: 40%;
             margin-top: 0;
         }
+
         &::before,
         &::after {
             content: '';
@@ -64,32 +77,38 @@
             background: #ffffff;
             opacity: 0.4;
         }
+
         &::before {
             margin-bottom: 40px;
         }
+
         &::after {
             margin-top: 40px;
         }
     }
+
     &-text3 {
         @media screen and (min-width: $bp-desktop + 1) {
             order: 4;
             width: 40%;
         }
     }
-    &-text4 {
-    }
-    &-text5 {
-    }
-    &-text6 {
-    }
+
+    &-text4 {}
+
+    &-text5 {}
+
+    &-text6 {}
+
     &-moreContainer {
         width: 100%;
         margin: 60px 0;
+
         @media screen and (min-width: $bp-desktop + 1) {
             margin: 80px 0;
         }
     }
+
     &-moreText {
         font-size: 18px;
         padding-bottom: 10px;
@@ -102,6 +121,7 @@
         cursor: pointer;
         border-bottom: 2px solid #fff;
         width: 100%;
+
         &:before {
             font-family: 'fontello';
             font-size: 20px;
@@ -109,13 +129,16 @@
             content: '\E801';
         }
     }
+
     &-more {
         display: none;
     }
+
     .show {
         display: none;
     }
-    .show:checked + .article-more {
+
+    .show:checked+.article-more {
         display: block;
     }
 
