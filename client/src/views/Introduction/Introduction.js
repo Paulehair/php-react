@@ -1,12 +1,9 @@
 import React from 'react';
 
-const Introduction = ({ changeCurrentStep, getPosition, applyTransform, slug, animation, indexToGo }) => {
+const Introduction = ({ changeCurrentStep, slug, animation, indexToGo }) => {
 
     return (
-        <div className="page" onMouseOver={getPosition}>
-            <svg>
-                <path id="path" d="m19,1 c0,0 4,4 4,4 l4,4 4,4c0,0 4,4 4,4 l4,4 4,4 c0,0 2,2 2,2l2,2 -12,0c0,0 6,12 6,12c2,4-4,6 -6,2 c0,0 -6,-12 -6,-12l-10,10 c0,0 0,-18 0,-18 v-14c0,0 0,-8 0,-8z" />
-            </svg>
+        <div className="page">
             <div className={"introduction"}>
                 <div className={"introduction-content"}>
                     <ul className={"introduction-title"}>

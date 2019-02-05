@@ -23,19 +23,6 @@ class IntroductionContainer extends Component {
         return new Promise(resolve => setTimeout(resolve, milliseconds));
     }
 
-    getPosition = (e) => {
-        e.preventDefault();
-        let mouse = e.clientX + 'px,' + e.clientY + 'px';
-        console.log(mouse);
-        return mouse;
-    }
-
-    applyTransform = (e) => {
-        e.preventDefault();
-        let mouse = this.getPosition();
-        e.style.transform = 'translate' + mouse;
-    }
-
     changeCurrentStep = async () => {
         this.setState({
             animation: true
@@ -55,8 +42,6 @@ class IntroductionContainer extends Component {
                 slug={this.slug}
                 indexToGo={this.indexToGo}
                 changeCurrentStep={this.changeCurrentStep}
-                getPosition={this.getPosition}
-                applyTransform={this.applyTransform}
             />
         );
     }
