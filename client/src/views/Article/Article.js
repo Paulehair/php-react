@@ -9,7 +9,9 @@ const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGo
         code =
             <Fragment>
                 <div className={"article container"} key={currentStep.id}>
-                    <h1 className={"article-title title strong"}>{`${currentStep.title} `}<span>{currentStep.title_span}</span></h1>
+                    <h1 className={"article-title title"}>{`${currentStep.title} `}
+                        <span className=" strong">{currentStep.title_span}</span>
+                    </h1>
                     <p className={"article-text1"}>{currentStep.text1}</p>
                     <div className="article-imgContainer">
                         <img className={"article-img"} src={`./images/04-article/${currentStep.img}`} alt="" />
@@ -32,11 +34,6 @@ const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGo
                 </div>
                 <div className={"article-btn group-btn"}>
                     <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
-                    {currentStep.second_choice !== null &&
-                        <Fragment>
-                            <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.second_choice}</button>
-                        </Fragment>
-                    }
                 </div>
                 <input ref={indexToGoFirst} type="hidden" defaultValue={currentStep.first_index} />
                 <input ref={indexToGoSecond} type="hidden" defaultValue={currentStep.second_index} />
