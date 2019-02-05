@@ -1,9 +1,14 @@
-.group-btn {
+.group-btn > div {
     display: flex;
     justify-content: center;
     height: 80px;
 }
-
+.group-btn > p{
+    margin-bottom: 10px;
+    @media screen and (max-width: $bp-mobile) {
+        padding-left: 20px;
+    }
+}
 .button {
     display: block;
     border: none;
@@ -15,7 +20,7 @@
     font-family: sans-serif;
     font-size: 14px;
     font-weight: 600;
-    height: 80%;
+    height: 90%;
     width: 100%;
     cursor: none;
     text-align: center;
