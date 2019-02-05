@@ -1,97 +1,81 @@
-import React from 'react';
+
+import React, { Component } from "react"
 import {
     ComposableMap,
     ZoomableGroup,
-    ZoomableGlobe,
     Geographies,
-    Geography
-  } from "react-simple-maps"
+    Geography,
+} from "react-simple-maps"
 
-const mapStyles = {
+const wrapperStyles = {
     width: "100%",
-    height: "auto",
+    maxWidth: 980,
+    margin: "0 auto",
 }
 
-const cities = [
-    { name: "France", coordinates: [2.618787,47.824905] },
-    { name: "Etats-Unis", coordinates: [-100,40] },
-    { name: "Chine", coordinates: [103,35] },
-    { name: "Angleterre", coordinates: [-0.11667,51.5] },
-    { name: "Japon", coordinates: [136,35] },
-];
-
-class Globe extends React.Component {
-    state = {
-        center: [0 , 0],
-        zoom: 1,
+class Globe extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            center: [0 , 20],
+            zoom: 1,
+            countries : [
+                {
+                    name : 'United States' , coordinates : [-97.922211 , 39.381266]
+                }
+            ]
+        };
     }
-    redirectCity = center => () => {
-        console.log('hello');
-    }
-
-    componentDidMount(){
-        cities.forEach(element => {
-            if(element.name.includes(this.props.location)){
-                this.setState({
-                    center: element.coordinates
-                })
-            } else {
-                console.log('💩');
-            }
-        });
-    }
-    render(){
-        return(
-          <div>
-          {/* <Motion
-            defaultStyle={{
-              x: center[0],
-              y: center[1]
-            }}
-            style={{
-              x: spring(center[0]),
-              y: spring(center[1])
-            }}
-          > */}
-              <ComposableMap
-                width={500}
-                height={500}
-                projection="orthographic"
-                projectionConfig={{ scale: 220 }}
-                style={mapStyles}
-              >
-                <ZoomableGlobe center={this.state.center} zoom={this.state.zoom} style={{stroke: 'red'}} onChange={this.redirectCity}>
-                  <circle
-                    cx={250}
-                    cy={250}
-                    r={220}
-                    fill="transparent"
-                    stroke="#CFD8DC"
-                  />
-                  <Geographies
-                    disableOptimization
-                    geography="https://unpkg.com/world-atlas@1.1.4/world/110m.json"
-                  >
-                    {(geos, proj) =>
-                      geos.map((geo, i) => (
-                        <Geography
-                          key={geo.id + i}
-                          geography={geo}
-                          projection={proj}
-                          style={{
-                            default: { fill: "#CFD8DC" },
-                            stroke: 'red'
-                          }}
-                        />
-                      ))
-                    }
-                  </Geographies>
-                </ZoomableGlobe>
-              </ComposableMap>
-          {/* </Motion> */}
-        </div>
+    render() {
+        return (
+            <div style={wrapperStyles}>
+                <ComposableMap
+                    projectionConfig={{
+                        scale: 205,
+                        rotation: [-11,0,0],
+                    }}
+                    width={980}
+                    height={551}
+                    style={{
+                        width: "100%",
+                        height: "auto",
+                    }}
+                >
+                    <ZoomableGroup center={this.state.center} zoom={this.state.zoom} disablePanning>
+                        <Geographies geography="maps/world-50m.json">
+                            {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
+                                <Geography
+                                    key={i}
+                                    geography={geography}
+                                    projection={projection}
+                                    style={{
+                                        default: {
+                                            fill: "#ECEFF1",
+                                            stroke: "#ECEFF1",
+                                            strokeWidth: 0.75,
+                                            outline: "none",
+                                        },
+                                        hover: {
+                                            fill: "#ECEFF1",
+                                            stroke: "#ECEFF1",
+                                            strokeWidth: 0.75,
+                                            outline: "none",
+                                        },
+                                        pressed: {
+                                            fill: "#ECEFF1",
+                                            stroke: "#ECEFF1",
+                                            strokeWidth: 0.75,
+                                            outline: "none",
+                                        },
+                                    }}
+                                />
+                            ))}
+                        </Geographies>
+                    </ZoomableGroup>
+                </ComposableMap>
+            </div>
         )
     }
-  }
+}
 
-  export default Globe;
+export default Globe
