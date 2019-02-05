@@ -9,7 +9,6 @@ const Map = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirs
     if (content) {
         const currentStep = content[currentStepIndex];
         code = <div className="map" key={currentStep.id}>
-            <h1>{currentStep.title}</h1>
             <div className="container">
                 <MapArticle changeCurrentStep={changeCurrentStep} currentStep={currentStep} indexToGoFirst={indexToGoFirst}/>
             </div>
