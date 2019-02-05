@@ -4,7 +4,7 @@
     flex-wrap: wrap;
 
     &-imgContainer {
-        height: 140px;
+        height: 175px;
         overflow: hidden;
 
         @media screen and (min-width: $bp-desktop +1) {
@@ -60,8 +60,7 @@
 
     &-text2 {
         order: 3;
-        margin-top: 40px;
-
+        margin-bottom: 60px;
         @media screen and (min-width: $bp-desktop +1) {
             order: 4;
         }
@@ -70,13 +69,14 @@
     &-quotationContainer {
         order: 5;
         margin: 40px 0;
-        text-align: center;
-
         @media screen and (min-width: $bp-desktop +1) {
             order: 2;
             width: 40%;
             margin: 0;
             margin-left: auto;
+        }
+        @media screen and (max-width: $bp-desktop) {
+            text-align: center;
         }
     }
 
@@ -98,11 +98,11 @@
         position: relative;
         background: #ffffff;
         margin: 0 -20px;
-        padding: 40px 20px 120px;
+        padding: 40px 20px 100px;
 
         @media screen and (min-width: $bp-mobile + 1) {
             margin: 0 -40px;
-            padding: 40px 40px 120px;
+            padding: 40px 40px 100px;
         }
 
         @media screen and (min-width: $bp-tablet + 1) {
@@ -114,14 +114,14 @@
             width: 50%;
             margin: 0;
             margin-left: auto;
-            padding: 80px 100px 120px;
+            padding: 80px 100px 100px;
         }
 
         &::after {
             position: absolute;
             content: 'scroll';
-            bottom: 30px;
             left: 50%;
+            top: 90%;
             transform: translateX(-50%) rotate(269deg);
             color: $lightgrey;
             font-size: 12px;
@@ -177,7 +177,7 @@
 
         @media screen and (min-width: $bp-desktop +1) {
             width: 50%;
-            margin: -80px 0 0;
+            margin: -118px 0 0;
         }
     }
 }

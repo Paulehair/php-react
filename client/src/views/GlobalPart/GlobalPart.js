@@ -54,7 +54,9 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
                         }
                     </div>
 
-                    <div className={"globalpart-btn group-btn"}>
+                <div className={"globalpart-btn group-btn"}>
+                    <p>Choisir un article</p>
+                    <div>
                         <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
                         <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
                         {currentStep.second_choice !== null &&
@@ -64,10 +66,11 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
                             </Fragment>
                         }
                     </div>
-
-                    <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
                 </div>
-            </Fragment>
+
+            </div>
+            <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
+        </Fragment>
     }
 
     return content && (
