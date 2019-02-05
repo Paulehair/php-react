@@ -144,7 +144,10 @@
     }
 
     &-btn {
+        display: flex;
+        justify-content: flex-end;
         width: 100%;
-        margin-top: 20px;
+        height: 80px;
+        margin-top: 30px;
     }
 }
