@@ -7,7 +7,6 @@
 @import "./components/header.scss";
 @import "./components/button.scss";
 @import "./components/cardLink.scss";
-@import "./components/map.scss";
 
 //import views
 @import "./views/introduction.scss";
@@ -15,6 +14,7 @@
 @import "./views/globalpart.scss";
 @import "./views/article.scss";
 @import "./views/transition.scss";
+@import "./views/map.scss";
 
 // Dependencies 
 @import "~slick-carousel/slick/slick.css"; 
