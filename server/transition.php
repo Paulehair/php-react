@@ -5,6 +5,8 @@ $sql = "SELECT
       `id`,
       `title`,
       `text1`,
+      `cardLink_title1`,
+      `cardLink_title2`,
       `first_choice`,
       `first_index`,
       `second_choice`,
