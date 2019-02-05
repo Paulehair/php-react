@@ -1,7 +1,7 @@
 import React, { Component, createRef, Fragment } from 'react';
 import GlobalPart from './GlobalPart';
 import { fetchGlobalPart } from '../../helpers/api';
-import { parseToNumber, pushHistory, setIndex , getStorage , setStorage} from '../../helpers/helpers';
+import { parseToNumber, pushHistory, setIndex, getStorage, setStorage } from '../../helpers/helpers';
 
 
 class GlobalPartContainer extends Component {
@@ -10,6 +10,7 @@ class GlobalPartContainer extends Component {
         this.state = ({
             content: null,
             currentStep: getStorage('globalPartIndex') || this.props.dataFromApp.currentIndex,
+            slide: false,
         })
     }
 
@@ -22,8 +23,8 @@ class GlobalPartContainer extends Component {
         this.setState({
             content: data,
         })
-        if(this.props.dataFromApp.currentIndex > getStorage('globalPartIndex') || getStorage('globalPartIndex') == null){
-            setStorage('globalPartIndex' , this.props.dataFromApp.currentIndex);
+        if (this.props.dataFromApp.currentIndex > getStorage('globalPartIndex') || getStorage('globalPartIndex') == null) {
+            setStorage('globalPartIndex', this.props.dataFromApp.currentIndex);
         }
     }
 
@@ -33,17 +34,23 @@ class GlobalPartContainer extends Component {
         pushHistory(this, this.slug.current.value);
     }
 
+    handleScroll = () => {
+        console.log('test');
+    }
+
     render() {
-        const { content, currentStep } = this.state;
+        const { content, currentStep, slide } = this.state;
         return (
             <div className="page">
                 <GlobalPart
                     content={content}
                     currentStepIndex={currentStep}
+                    slide={slide}
                     changeCurrentStep={this.changeCurrentStep}
                     slug={this.slug}
                     indexToGoFirst={this.indexToGoFirst}
                     indexToGoSecond={this.indexToGoSecond}
+                    handleScroll={this.handleScroll}
                 />
             </div>
         );

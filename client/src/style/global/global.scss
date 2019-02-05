@@ -4,9 +4,18 @@ body {
     font-size: 14px;
     line-height: 29px;
     color: #fff;
+    cursor: none;
+
     @media screen and (min-width: $bp-tablet + 1) {
         font-size: 18px;
         line-height: 28px;
+    }
+}
+
+@keyframes animCursor {
+    to {
+        height: 40px;
+        width: 40px;
     }
 }
 
@@ -44,12 +53,15 @@ body {
 .container {
     padding: 0 20px;
     min-height: min-content;
+
     @media screen and (min-width: $bp-mobile + 1) {
         padding: 0 40px;
     }
+
     @media screen and (min-width: $bp-tablet + 1) {
         padding: 0 80px;
     }
+
     @media screen and (min-width: $bp-desktop + 1) {
         padding: 0 140px;
     }
@@ -61,10 +73,15 @@ body {
     line-height: 39px;
     letter-spacing: -0.25px;
     margin-bottom: 15px;
+
     @media screen and (min-width: $bp-tablet + 1) {
         font-size: 86px;
         line-height: 100px;
         margin-bottom: 25px;
+    }
+
+    span {
+        color: #fff;
     }
 }
 
@@ -76,4 +93,17 @@ body {
 
 .strong {
     color: $main-color;
+}
+
+.cursor {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    border: 5px solid $main-color;
+
+    @media screen and (max-width: $bp-mobile) {
+        display: none;
+    }
 }

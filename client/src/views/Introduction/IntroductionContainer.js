@@ -1,18 +1,14 @@
 import React, { Component, createRef } from 'react';
 import Introduction from './Introduction';
-import { parseToNumber, pushHistory, setIndex} from '../../helpers/helpers';
+import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';
 
 class IntroductionContainer extends Component {
     constructor(props) {
         super(props)
         this.state = ({
             content: null,
-            currentIntroduction: this.props.dataFromApp.currentIndex,
-            percentage: 0,
-            display: false
+            animation: false
         });
-        this.counter = 0;
-        this.startLoader();
         this.changeCurrentStep = this.changeCurrentStep.bind(this);
     };
 
@@ -22,49 +18,30 @@ class IntroductionContainer extends Component {
     componentDidMount() {
         localStorage.clear();
     }
-    changeCurrentStep = () => {
+
+    sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds));
+    }
+
+    changeCurrentStep = async () => {
+        this.setState({
+            animation: true
+        });
+        await this.sleep(5000);
         let indexToNumber = parseToNumber(this.indexToGo.current.value);
         setIndex(this, indexToNumber);
         pushHistory(this, this.slug.current.value);
     }
 
-    componentWillUnmount = () => {
-        this.stopLoader();
-    }
-
-    loader = () => {
-        this.setState({
-            percentage: this.state.percentage += 1
-        });
-    }
-
-    startLoader = () => {
-        this.counter = setInterval(() => {
-            this.loader();
-            if (this.state.percentage === 100) {
-                this.stopLoader();
-            }
-        }, 50);
-    }
-
-    stopLoader = () => {
-        clearInterval(this.counter);
-        this.setState({
-            display: true
-        })
-    }
-
     render() {
-        const { content, currentIntroduction, display } = this.state;
+        const { content, animation } = this.state;
         return (
             <Introduction
                 content={content}
-                currentIntroductionIndex={currentIntroduction}
+                animation={animation}
                 slug={this.slug}
                 indexToGo={this.indexToGo}
                 changeCurrentStep={this.changeCurrentStep}
-                percentage={this.state.percentage}
-                display={display}
             />
         );
     }
