@@ -1,6 +1,23 @@
 import React, { Fragment } from 'react';
+import Slider from 'react-slick';
 
-const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst, indexToGoSecond, slide, handleScroll }) => {
+const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst, indexToGoSecond }) => {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        customPaging: function () {
+            return (
+                <div className='globalpart-slider-dots'>
+                    <span className={"dot"}></span>
+                </div>
+            );
+        },
+    };
+
     let code;
     if (content) {
         const currentStep = content[currentStepIndex];
@@ -25,53 +42,47 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
                         <p className={"globalpart-quotation"}>{currentStep.introduction}</p>
                         <p className={"globalpart-source"}>{currentStep.introduction2}</p>
                     </div>
+                    <div className="globalpart-slider">
+                        <Slider {...settings} >
+                            <div className={"globalpart-slide"}>
+                                <p className={"globalpart-slide-title"}>{currentStep.subtitle1}</p>
+                                <p className={"globalpart-slide-text"}>{currentStep.subcontent1}</p>
+                            </div>
 
-                    <div onScroll={handleScroll} className={"globalpart-slider"}>
-                        <div className={"globalpart-slider-dots"}>
-                            <span className={"dot active"}></span>
-                            <span className={slide ? 'dot active' : 'dot'}></span>
+                            <div className={"globalpart-slide"}>
+                                <p className={"globalpart-slide-title"}>{currentStep.subtitle2}</p>
+                                <p className={"globalpart-slide-text"}>{currentStep.subcontent2}</p>
+                                <p className={"globalpart-slide-text"}>{currentStep.subcontent21}</p>
+                            </div>
                             {currentStep.subtitle3 !== '' &&
-                                <span className={slide ? 'dot active' : 'dot'}></span>
+
+                                <div className={"globalpart-slide"}>
+                                    <p className={"globalpart-slide-title"}>{currentStep.subtitle3}</p>
+                                    <p className={"globalpart-slide-text"}>{currentStep.subcontent3}</p>
+                                    <p className={"globalpart-slide-text"}>{currentStep.subcontent31}</p>
+                                </div>
+
+                            }
+                        </Slider>
+                    </div>
+
+                    <div className={"globalpart-btn group-btn"}>
+                        <p>Choisir un article</p>
+                        <div>
+                            <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
+                            <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
+                            {currentStep.second_choice !== null &&
+                                <Fragment>
+                                    <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.second_choice}</button>
+                                    <input ref={indexToGoSecond} type="hidden" value={currentStep.second_index} />
+                                </Fragment>
                             }
                         </div>
-
-                        <div className={"globalpart-slide active"}>
-                            <p className={"globalpart-slide-title"}>{currentStep.subtitle1}</p>
-                            <p className={"globalpart-slide-text"}>{currentStep.subcontent1}</p>
-                        </div>
-
-                        <div className={"globalpart-slide"}>
-                            <p className={"globalpart-slide-title"}>{currentStep.subtitle2}</p>
-                            <p className={"globalpart-slide-text"}>{currentStep.subcontent2}</p>
-                            <p className={"globalpart-slide-text"}>{currentStep.subcontent21}</p>
-                        </div>
-
-                        {currentStep.subtitle3 !== '' &&
-                            <div className={"globalpart-slide"}>
-                                <p className={"globalpart-slide-title"}>{currentStep.subtitle3}</p>
-                                <p className={"globalpart-slide-text"}>{currentStep.subcontent3}</p>
-                                <p className={"globalpart-slide-text"}>{currentStep.subcontent31}</p>
-                            </div>
-                        }
                     </div>
 
-                <div className={"globalpart-btn group-btn"}>
-                    <p>Choisir un article</p>
-                    <div>
-                        <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
-                        <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
-                        {currentStep.second_choice !== null &&
-                            <Fragment>
-                                <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.second_choice}</button>
-                                <input ref={indexToGoSecond} type="hidden" value={currentStep.second_index} />
-                            </Fragment>
-                        }
-                    </div>
                 </div>
-
-            </div>
-            <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
-        </Fragment>
+                <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
+            </Fragment>
     }
 
     return content && (

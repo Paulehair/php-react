@@ -17,15 +17,15 @@ const sliderSettings = {
 };
 
 
-const MapArticle = ({ content , isMobile , changeCurrentStep , indexToGoFirst , currentStep}) => {
+const MapArticle = ({ content, isMobile, changeCurrentStep, indexToGoFirst, currentStep }) => {
     return content && <div className="map-article">
         {!isMobile ?
             <div>
-                <Globe/>
+                <Globe />
                 <div className="map-discover_text">
                     <p>Cliquez sur les points pour découvrir l’histoire</p>
                 </div>
-                <div className="map-content"/>
+                <div className="map-content" />
                 <div className="map-button">
                     <button onClick={() => changeCurrentStep(indexToGoFirst)} className="button btn-next">{currentStep.first_choice}</button>
                 </div>
@@ -38,7 +38,7 @@ const MapArticle = ({ content , isMobile , changeCurrentStep , indexToGoFirst , 
                         return (
                             <div className="map-slides" key={con.id}>
                                 <div className="map-img">
-                                    <img src={'maps/' + con.img_country + '.svg'} alt={con.img_country}/>
+                                    <img src={'maps/' + con.img_country + '.svg'} alt={con.img_country} />
                                 </div>
 
                                 <div className="map-content">
@@ -48,10 +48,10 @@ const MapArticle = ({ content , isMobile , changeCurrentStep , indexToGoFirst , 
                                     <div className="map-mediaContainer">
                                         {con.img === null ? (
                                             <video controls>
-                                                <source src={`${con.video}`}/>
+                                                <source src={`${con.video}`} />
                                             </video>
-                                            ) : (
-                                            <img src={`${con.img}`} alt="" />
+                                        ) : (
+                                                <img src={`${con.img}`} alt="" />
                                             )
                                         }
                                     </div>
