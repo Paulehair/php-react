@@ -6,6 +6,7 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
         const currentStep = content[currentStepIndex];
         code =
             <Fragment>
+                <h3 className="title-part">{currentStep.title_part}</h3>
                 <div className={"globalpart-imgContainer"}>
                     <img className={"globalpart-img"} src={`./images/03-globalpart/${currentStep.img}`} alt="image" />
                 </div>

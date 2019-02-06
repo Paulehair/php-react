@@ -103,3 +103,14 @@ body {
         display: none;
     }
 }
+
+.title-part {
+    display: none;
+    @media screen and (min-width: $bp-tablet + 1) {
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: -120px;
+        transform: translateY(-50%) rotate(270deg);
+    }
+}
