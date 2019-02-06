@@ -10,6 +10,7 @@ const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGo
                 <h3 className="title-part">{currentStep.title_part}</h3>
                 <div className={"article container"} key={currentStep.id}>
                     <h1 className={"article-title title"}>{`${currentStep.title} `}
+                        <br />
                         <span className=" strong">{currentStep.title_span}</span>
                     </h1>
                     <p className={"article-text1"}>{currentStep.text1}</p>
