@@ -20,14 +20,14 @@ const Transition = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
                         <Fragment>
                             <a onClick={() => changeCurrentStep(indexToGoFirst)} className="cardLink">
                                 <div className="cardLink-imgContainer">
-                                    <img className="cardLink-img" src="./images/06-transition/cerveau.png" alt="image" />
+                                    <img className="cardLink-img" src="./images/06-transition/cerveau.png" alt="" />
                                 </div>
                                 <p className="cardLink-text"><span>{currentStep.first_choice}</span></p>
                                 <h4 className="cardLink-title">{currentStep.cardLink_title1}</h4>
                             </a>
                             <a onClick={() => changeCurrentStep(indexToGoSecond)} className="cardLink">
                                 <div className="cardLink-imgContainer">
-                                    <img className="cardLink-img" src="./images/06-transition/eugenisme.png" alt="image" />
+                                    <img className="cardLink-img" src="./images/06-transition/eugenisme.png" alt="" />
                                 </div>
                                 <p className="cardLink-text"><span>{currentStep.second_choice}</span></p>
                                 <h4 className="cardLink-title">{currentStep.cardLink_title2}</h4>

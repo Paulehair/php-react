@@ -1,4 +1,4 @@
-import React, { Component, createRef, Fragment } from 'react';
+import React, { Component, createRef } from 'react';
 import Transition from './Transition';
 import { fetchTransition } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex , getStorage , setStorage} from '../../helpers/helpers';

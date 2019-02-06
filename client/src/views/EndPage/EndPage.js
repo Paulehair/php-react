@@ -13,18 +13,18 @@ const EndPage = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGo
                     <p className="endpage-text">{currentStep.text1}</p>
                 </div>
 
-                    {currentStep.slug == "globalpart" ? (
+                    {currentStep.slug === "globalpart" ? (
                         <div className="block">
                             <a onClick={() => changeCurrentStep(indexToGoFirst)} className="cardLink">
                                 <div className="cardLink-imgContainer">
-                                    <img className="cardLink-img" src="./images/02-endpage/maladie.png" alt="image"/>
+                                    <img className="cardLink-img" src="./images/02-endpage/maladie.png" alt=""/>
                                 </div>
                                 <p className="cardLink-text"><span>{currentStep.first_choice}</span></p>
                                 <h4 className="cardLink-title">{currentStep.cardLink_title1}</h4>
                             </a>
                             <a onClick={() => changeCurrentStep(indexToGoSecond)} className="cardLink">
                                 <div className="cardLink-imgContainer">
-                                    <img className="cardLink-img" src="./images/02-endpage/handicap.png" alt="image" />
+                                    <img className="cardLink-img" src="./images/02-endpage/handicap.png" alt="" />
                                 </div>
                                 <p className="cardLink-text"><span>{currentStep.second_choice}</span></p>
                                 <h4 className="cardLink-title">{currentStep.cardLink_title2}</h4>
@@ -34,14 +34,14 @@ const EndPage = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGo
                         <div className="block">
                             <a onClick={() => changeCurrentStep(indexToGoFirst)} className="cardLink">
                                 <div className="cardLink-imgContainer">
-                                    <img className="cardLink-img" src="./images/02-endpage/again.png" alt="image" />
+                                    <img className="cardLink-img" src="./images/02-endpage/again.png" alt="" />
                                 </div>
                                 <p className="cardLink-text"><span>{currentStep.first_choice}</span></p>
                                 <h4 className="cardLink-title">{currentStep.cardLink_title1}</h4>
                             </a>
                             <a onClick={() => changeCurrentStep(indexToGoSecond)} className="cardLink">
                                 <div className="cardLink-imgContainer">
-                                    <img className="cardLink-img" src="./images/02-endpage/more.png" alt="image" />
+                                    <img className="cardLink-img" src="./images/02-endpage/more.png" alt="" />
                                 </div>
                                 <p className="cardLink-text"><span>{currentStep.second_choice}</span></p>
                                 <h4 className="cardLink-title">{currentStep.cardLink_title2}</h4>

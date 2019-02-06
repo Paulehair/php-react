@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
 import MapArticle from '../MapArticle/MapArticleContainer';
-import Header from '../../components/Header';
-
 
 const Map = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst }) => {
 
