@@ -8,6 +8,7 @@ const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGo
         const currentStep = content[currentStepIndex];
         code =
             <Fragment>
+                <h3 className="title-part">{currentStep.title_part}</h3>
                 <div className={"article container"} key={currentStep.id}>
                     <h1 className={"article-title title"}>{`${currentStep.title} `}
                         <span className=" strong">{currentStep.title_span}</span>

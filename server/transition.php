@@ -3,6 +3,7 @@ require_once "conn.php";
 
 $sql = "SELECT
       `id`,
+      `title_part`,
       `title`,
       `text1`,
       `cardLink_title1`,
