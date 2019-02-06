@@ -25,10 +25,11 @@
         }
 
         &:first-child {
-            padding: 0 6%;
+            padding: 6%;
             @media screen and (max-width: $bp-mobile) {
                 padding: 0;
                 margin-bottom: 60px;
+                margin-top: 80px;
             }
         }
         &:nth-child(2) {
@@ -36,6 +37,9 @@
             align-items: center;
             @media screen and (max-width: $bp-desktop-large) {
                 flex-direction: column;
+            }
+            @media screen and (max-width: $bp-mobile) {
+                padding-bottom: 60px;
             }
         }
     }

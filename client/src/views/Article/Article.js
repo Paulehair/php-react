@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../../components/Header';
 
 const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGoFirst, indexToGoSecond }) => {
     let code;
@@ -37,7 +36,6 @@ const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGo
                     <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
                 </div>
                 <input ref={indexToGoFirst} type="hidden" defaultValue={currentStep.first_index} />
-                <input ref={indexToGoSecond} type="hidden" defaultValue={currentStep.second_index} />
                 <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
             </Fragment>
             ;

@@ -1,4 +1,4 @@
-import React , {Fragment} from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import Globe from './Globe';
 
@@ -51,7 +51,7 @@ const MapArticle = ({ content , isMobile , changeCurrentStep , indexToGoFirst , 
                                                 <source src={`${con.video}`}/>
                                             </video>
                                             ) : (
-                                            <img src={`${con.img}`} alt="image" />
+                                            <img src={`${con.img}`} alt="" />
                                             )
                                         }
                                     </div>

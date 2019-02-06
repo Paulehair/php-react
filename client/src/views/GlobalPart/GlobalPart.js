@@ -8,7 +8,7 @@ const GlobalPart = ({ content, currentStepIndex, changeCurrentStep, slug, indexT
             <Fragment>
                 <h3 className="title-part">{currentStep.title_part}</h3>
                 <div className={"globalpart-imgContainer"}>
-                    <img className={"globalpart-img"} src={`./images/03-globalpart/${currentStep.img}`} alt="image" />
+                    <img className={"globalpart-img"} src={`./images/03-globalpart/${currentStep.img}`} alt="" />
                 </div>
                 <div key={currentStep.id} className={"globalpart container"}>
 

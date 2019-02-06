@@ -1,5 +1,17 @@
 .header {
     position: static;
-    top: 0;
-    background: transparent;
+    padding: 20px 35px;
+    display: flex;
+    p {
+        font-weight: 400;
+        font-size: 24px;
+        &:first-child {
+            -moz-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+            filter: FlipH;
+            -ms-filter: "FlipH";
+        }
+    }
 }
