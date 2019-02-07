@@ -11,6 +11,7 @@ class MapContainer extends Component {
             currentStep: this.props.dataFromApp.currentIndex,
             currentSlide: this
         })
+        window.scroll(0, 0);
     }
 
 
