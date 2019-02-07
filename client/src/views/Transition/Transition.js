@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 
 const Transition = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst, indexToGoSecond, indexToGoThird }) => {
     let code;
-    console.log(content, currentStepIndex)
     if (content && content.length) {
         const currentStep = content[currentStepIndex];
         code = <Fragment>
