@@ -45,6 +45,12 @@
       "css": "plus",
       "code": 59393,
       "src": "entypo"
+    },
+    {
+      "uid": "1256e3054823e304d7e452a589cf8bb8",
+      "css": "minus",
+      "code": 59395,
+      "src": "entypo"
     }
   ]
 }
