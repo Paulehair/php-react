@@ -105,10 +105,10 @@ const MapArticle = (
                                     </div>
                                     {con.text2 !== '' &&
                                         <div className="map-moreContainer">
+                                            <input id="show" className="show" type="checkbox" />
                                             <label for="show" className="map-moreText">
                                                 En savoir plus
                                             </label>
-                                            <input id="show" className="show" type="checkbox" />
                                             <div className="map-more">
                                                 <p className="map-text">{con.text2}</p>
                                                 <p className="map-text">{con.text3}</p>

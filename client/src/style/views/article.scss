@@ -140,8 +140,11 @@
         display: none;
     }
 
-    .show:checked+.article-more {
+    .show:checked ~ .article-more {
         display: block;
+    }
+    .show:checked ~ .article-moreText:before {
+      content: '\E803';
     }
 
     &-btn {
