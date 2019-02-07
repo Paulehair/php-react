@@ -38,7 +38,6 @@ class TransitionContainer extends Component {
 
     render() {
         const { content, currentStep } = this.state;
-        console.log(this.props.dataFromApp.currentIndex);
         return (
             <div className="page">
                 {this.state.content && (
