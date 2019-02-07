@@ -96,11 +96,14 @@
         }
     }
 
-    &-text4 {}
-
-    &-text5 {}
-
-    &-text6 {}
+    &-text4,
+    &-text5,
+    &-text6 {
+        @media screen and (min-width: $bp-desktop + 1) {
+            padding: 0 32px;
+            font-size: 14px;
+        }
+    }
 
     &-moreContainer {
         width: 100%;
