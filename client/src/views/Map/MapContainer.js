@@ -26,13 +26,10 @@ class MapContainer extends Component {
     }
 
     changeCurrentStep = (index) => {
-        console.log(index.current.value);
-        console.log(this.slug.current.value);
-
 
         let indexToNumber = parseToNumber(index.current.value);
         setIndex(this, indexToNumber);
-        //pushHistory(this, this.slug.current.value);
+        pushHistory(this, this.slug.current.value);
     }
 
 

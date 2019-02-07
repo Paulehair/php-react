@@ -36,7 +36,7 @@ const MapArticle = (
         slug
     }) => {
     if (content === null) {
-        return 'Loading...';
+        return <p className='map-loading'>Loading...</p>;
     }
 
     return <div className="map-article">
@@ -97,11 +97,9 @@ const MapArticle = (
                                     <p className="map-text">{con.text1}</p>
                                     <div className="map-mediaContainer">
                                         {con.img === null ? (
-                                            <video controls>
-                                                <source src={`${con.video}`} />
-                                            </video>
+                                            <iframe src={con.video} frameborder="0"></iframe>
                                         ) : (
-                                                <img src={`${con.img}`} alt="" />
+                                                <img src={con.img} alt="" />
                                             )
                                         }
                                     </div>

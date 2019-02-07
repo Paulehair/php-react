@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import MapArticle from '../MapArticle/MapArticleContainer';
+import MapArticleContainer from '../MapArticle/MapArticleContainer';
 
 const Map = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirst }) => {
 
@@ -7,9 +7,8 @@ const Map = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirs
     if (content) {
         const currentStep = content[currentStepIndex];
         code = <div className="map" key={currentStep.id}>
-            <h1>{currentStep.title}</h1>
             <div className={window.width <= 768 ? 'container' : ''}>
-                <MapArticle changeCurrentStep={changeCurrentStep} currentStep={currentStep} indexToGoFirst={indexToGoFirst} slug={slug} />
+                <MapArticleContainer changeCurrentStep={changeCurrentStep} currentStep={currentStep} indexToGoFirst={indexToGoFirst} slug={slug} />
             </div>
         </div>
     }

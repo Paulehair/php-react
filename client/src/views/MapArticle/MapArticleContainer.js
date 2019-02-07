@@ -48,7 +48,7 @@ class MapArticleContainer extends Component {
 
     render() {
         const { content, sliderIndex , isMobile , contentId , center , zoom , geoPaths, articleOpen , pathId} = this.state;
-        const {changeCurrentStep , currentStep , indexToGoFirst } = this.props;
+        const {changeCurrentStep , currentStep , indexToGoFirst , slug } = this.props;
         return (
             <MapArticle
                 content={content}
@@ -65,6 +65,7 @@ class MapArticleContainer extends Component {
                 geoPaths={geoPaths}
                 switchPaths={this.switchPaths}
                 pathId={pathId}
+                slug={slug}
             />
         );
     }
