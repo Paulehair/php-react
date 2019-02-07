@@ -21,10 +21,10 @@ const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGo
                     <p className={"article-text3"}>{currentStep.text3}</p>
                     {currentStep.text4 !== '' &&
                         <div className="article-moreContainer">
+                            <input id="show" className="show" type="checkbox" />
                             <label for="show" className="article-moreText">
                                 En savoir plus
                             </label>
-                            <input id="show" className="show" type="checkbox" />
                             <div className="article-more">
                                 <p className={"article-text4"}>{currentStep.text4}</p>
                                 <p className={"article-text5"}>{currentStep.text5}</p>

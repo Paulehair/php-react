@@ -88,8 +88,11 @@
         display: none;
     }
 
-    .show:checked+.map-more {
+    .show:checked ~ .map-more {
         display: block;
+    }
+    .show:checked  ~ .map-moreText:before {
+      content: '\E803';
     }
   }
 
