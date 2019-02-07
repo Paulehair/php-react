@@ -101,14 +101,10 @@
         display: none;
     }
 
-    .show {
-        display: none;
-    }
-
-    .show:checked ~ .map-more {
+    .map-moreText.active ~ .map-more {
         display: block;
     }
-    .show:checked  ~ .map-moreText:before {
+    .map-moreText.active:before {
       content: '\E803';
     }
   }

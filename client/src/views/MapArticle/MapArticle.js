@@ -33,7 +33,9 @@ const MapArticle = (
         geoPaths,
         switchPaths,
         pathId,
-        slug
+        slug,
+        isChecked, 
+        handleChecked 
     }) => {
     if (content === null) {
         return <p className='map-loading'>Loading...</p>;
@@ -105,8 +107,7 @@ const MapArticle = (
                                     </div>
                                     {con.text2 !== '' &&
                                         <div className="map-moreContainer">
-                                            <input id="show" className="show" type="checkbox" />
-                                            <label for="show" className="map-moreText">
+                                            <label onClick={handleChecked} className={"map-moreText" + (isChecked ? " active" : "" )}>
                                                 En savoir plus
                                             </label>
                                             <div className="map-more">
