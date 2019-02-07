@@ -11,6 +11,7 @@ class ArticleContainer extends Component {
             content: null,
             currentStep: this.props.dataFromApp.currentIndex,
         })
+        window.scroll(0, 0);
     }
 
     //create reference to get slug inside input hidden in Article.js

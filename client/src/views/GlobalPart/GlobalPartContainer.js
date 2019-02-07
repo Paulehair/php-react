@@ -12,6 +12,7 @@ class GlobalPartContainer extends Component {
             currentStep: this.props.dataFromApp.currentIndex,
             slide: false,
         })
+        window.scroll(0, 0);
     }
 
     slug = createRef();

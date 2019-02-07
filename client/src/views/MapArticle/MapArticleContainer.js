@@ -10,6 +10,7 @@ class MapArticleContainer extends Component {
             sliderIndex: 0,
             isMobile: window.innerWidth <= 768,
         })
+        window.scroll(0, 0);
     }
 
     async componentDidMount() {

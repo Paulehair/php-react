@@ -10,6 +10,7 @@ class IntroductionContainer extends Component {
             animation: false
         });
         this.changeCurrentStep = this.changeCurrentStep.bind(this);
+        window.scroll(0, 0);
     };
 
     slug = createRef();

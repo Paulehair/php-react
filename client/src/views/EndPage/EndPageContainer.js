@@ -10,6 +10,7 @@ class EndPageContainer extends Component {
             content: null,
             currentStep: this.props.dataFromApp.currentIndex,
         })
+        window.scroll(0, 0);
     }
 
     slug = createRef();
