@@ -1,7 +1,8 @@
-.endpage { 
+.endpage {
     display: flex;
     align-items: center;
     height: 100%;
+
     @media screen and (max-width: $bp-mobile) {
         flex-direction: column;
     }
@@ -11,33 +12,39 @@
         z-index: -1;
         height: 100%;
         width: 100%;
-        background: url(/images/02-endpage/background.png) no-repeat right;
-        background-size: cover;
+        background: url(/images/gugus.svg) no-repeat right;
+        background-size: 50%;
+
         @media screen and (max-width: $bp-tablet) {
             background: none;
         }
     }
-    
+
     .block {
         width: 50%;
+
         @media screen and (max-width: $bp-mobile) {
             width: 100%;
         }
 
         &:first-child {
             padding: 6%;
+
             @media screen and (max-width: $bp-mobile) {
                 padding: 0;
                 margin-bottom: 60px;
                 margin-top: 80px;
             }
         }
+
         &:nth-child(2) {
             display: flex;
             align-items: center;
+
             @media screen and (max-width: $bp-desktop-large) {
                 flex-direction: column;
             }
+
             @media screen and (max-width: $bp-mobile) {
                 padding-bottom: 60px;
             }
@@ -52,10 +59,12 @@
 
     &-text {
         width: 100%;
-         @media screen and (min-width: $bp-tablet + 1) {
+
+        @media screen and (min-width: $bp-tablet + 1) {
             width: 84%;
         }
-         @media screen and (max-width: $bp-mobile) {
+
+        @media screen and (max-width: $bp-mobile) {
             text-align: center;
         }
 
@@ -69,9 +78,11 @@
             background: #ffffff;
             opacity: 0.4;
         }
+
         &::before {
             margin-bottom: 40px;
         }
+
         &::after {
             margin-top: 40px;
         }

@@ -2,6 +2,7 @@ import React, { Component, createRef } from 'react';
 import Article from './Article';
 import { fetchData } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex, } from '../../helpers/helpers';
+import Background from '../../components/Background';
 
 class ArticleContainer extends Component {
     constructor(props) {
@@ -37,6 +38,7 @@ class ArticleContainer extends Component {
         const { content, currentStep } = this.state;
         return (
             <div className="page">
+                <Background className="article-background" />
                 <Article
                     content={content}
                     currentStepIndex={currentStep}

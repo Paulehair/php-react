@@ -44,6 +44,7 @@ const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGo
 
     return content && (
         <Fragment>
+            <div className="article-background"></div>
             {code}
         </Fragment>
     );
