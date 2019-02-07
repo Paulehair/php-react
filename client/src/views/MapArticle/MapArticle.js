@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Slider from 'react-slick';
-import Globe from './Globe';
+import Globe from '../Globe/Globe';
+import { Spring } from 'react-spring'
 
 
 const sliderSettings = {
@@ -17,17 +18,66 @@ const sliderSettings = {
 };
 
 
-const MapArticle = ({ content, isMobile, changeCurrentStep, indexToGoFirst, currentStep }) => {
-    return content && <div className="map-article">
+const MapArticle = (
+    {
+        content,
+        isMobile,
+        changeCurrentStep,
+        indexToGoFirst,
+        currentStep,
+        contentId,
+        articleOpen,
+        dezoom,
+        zoom,
+        center,
+        geoPaths,
+        switchPaths,
+        pathId,
+        slug
+    }) => {
+    if (content === null) {
+        return <p className='map-loading'>Loading...</p>;
+    }
+
+    return <div className="map-article">
         {!isMobile ?
-            <div>
-                <Globe />
+            <div className='map-article_container'>
+                <Globe articleOpen={articleOpen} zoom={zoom} center={center} geoPaths={geoPaths} switchPaths={switchPaths} pathId={pathId} />
                 <div className="map-discover_text">
-                    <p>Cliquez sur les points pour découvrir l’histoire</p>
+                    <p onClick={!articleOpen ? null : dezoom}>{!articleOpen ? 'Cliquez sur les points pour découvrir l’histoire' : 'Cliquez ici pour revenir a la carte'}</p>
                 </div>
-                <div className="map-content" />
-                <div className="map-button">
-                    <button onClick={() => changeCurrentStep(indexToGoFirst)} className="button btn-next">{currentStep.first_choice}</button>
+                <div className="map-content">
+                    {contentId !== '' &&
+                        <Fragment>
+                            <div className="map-bloc_left">
+                                <h2 className="map-title">{content[contentId].title}</h2>
+                                <h5 className="map-subtitle">{content[contentId].subtitle}</h5>
+                                <div className="map-text">
+                                    <p>{content[contentId].text1}</p>
+                                </div>
+                                <div className="map-text">
+                                    <p>{content[contentId].text2}</p>
+                                </div>
+                            </div>
+                            <div className="map-bloc_right">
+                                <div className="map-media">
+                                    {content[contentId].video !== null ?
+                                        <iframe src={content[contentId].video}></iframe>
+                                        :
+                                        <img src={content[contentId].img} alt="" />
+                                    }
+                                </div>
+                                <div className="map-text">
+                                    <p>{content[contentId].text3}</p>
+                                </div>
+                                <div className="map-button">
+                                    <button onClick={() => changeCurrentStep(indexToGoFirst)} className="button btn-next">{currentStep.first_choice}</button>
+                                    <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
+                                    <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
+                                </div>
+                            </div>
+                        </Fragment>
+                    }
                 </div>
             </div>
             :
@@ -47,11 +97,9 @@ const MapArticle = ({ content, isMobile, changeCurrentStep, indexToGoFirst, curr
                                     <p className="map-text">{con.text1}</p>
                                     <div className="map-mediaContainer">
                                         {con.img === null ? (
-                                            <video controls>
-                                                <source src={`${con.video}`} />
-                                            </video>
+                                            <iframe src={con.video} frameborder="0"></iframe>
                                         ) : (
-                                                <img src={`${con.img}`} alt="" />
+                                                <img src={con.img} alt="" />
                                             )
                                         }
                                     </div>
@@ -74,6 +122,8 @@ const MapArticle = ({ content, isMobile, changeCurrentStep, indexToGoFirst, curr
                 </Slider>
                 <div className="map-button">
                     <button onClick={() => changeCurrentStep(indexToGoFirst)} className="button btn-next">{currentStep.first_choice}</button>
+                    <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
+                    <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
                 </div>
             </div>
         }

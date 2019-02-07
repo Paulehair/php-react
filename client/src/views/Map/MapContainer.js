@@ -17,7 +17,6 @@ class MapContainer extends Component {
 
     slug = createRef();
     indexToGoFirst = createRef();
-    indexToGoSecond = createRef();
 
     async componentDidMount() {
         const data = await fetchMap();
@@ -27,6 +26,7 @@ class MapContainer extends Component {
     }
 
     changeCurrentStep = (index) => {
+
         let indexToNumber = parseToNumber(index.current.value);
         setIndex(this, indexToNumber);
         pushHistory(this, this.slug.current.value);
@@ -43,7 +43,6 @@ class MapContainer extends Component {
                     changeCurrentStep={this.changeCurrentStep}
                     slug={this.slug}
                     indexToGoFirst={this.indexToGoFirst}
-                    indexToGoSecond={this.indexToGoSecond}
                 />
             </div>
         );
