@@ -14,7 +14,7 @@ const Introduction = ({ changeCurrentStep, slug, animation, indexToGo }) => {
                         <li className={"introduction-title-letter ghost"}>V</li>
                         <li className={"introduction-title-letter"}>E</li>
                     </ul>
-                    <svg className={"introduction-svg"} viewBox="0 0 91.87 64.21" height="120px" fill="#fff">
+                    <svg onClick={() => changeCurrentStep()} className={"introduction-svg"} viewBox="0 0 91.87 64.21" height="120px" fill="#fff">
                         <title>fingerprint</title>
                         <g>
                             <path className={animation ? "cls-1 showDash" : "cls-1"} strokeDasharray="61" strokeDashoffset="61" d="M238.91,243.65a.36.36,0,0,1-.22-.07.37.37,0,0,1-.09-.52,20.25,20.25,0,0,1,26.31-6.39.38.38,0,0,1-.36.66,19.5,19.5,0,0,0-25.34,6.16A.38.38,0,0,1,238.91,243.65Z" transform="translate(-204.34 -217.68)" />
@@ -41,7 +41,7 @@ const Introduction = ({ changeCurrentStep, slug, animation, indexToGo }) => {
                         <path d="M205.78,279.78a1.44,1.44,0,1,1,1.44-1.44A1.44,1.44,0,0,1,205.78,279.78Zm0-2.62a1.19,1.19,0,1,0,1.19,1.18A1.18,1.18,0,0,0,205.78,277.16Z" transform="translate(-204.34 -217.68)" />
                         <path d="M294.78,281.19a1.44,1.44,0,1,1,1.44-1.43A1.44,1.44,0,0,1,294.78,281.19Zm0-2.62a1.19,1.19,0,1,0,1.19,1.19A1.19,1.19,0,0,0,294.78,278.57Z" transform="translate(-204.34 -217.68)" />
                     </svg>
-                    <p onClick={() => changeCurrentStep()} className={"introduction-click"}>Click here</p>
+                    <p className={"introduction-click"}>Click here</p>
                 </div>
                 <input ref={indexToGo} type="hidden" defaultValue={0} />
                 <input ref={slug} type="hidden" defaultValue={'endpage'} />

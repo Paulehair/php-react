@@ -1,51 +1,54 @@
-## Server / Client app
+# EVOLVE
 
-first lauch server locally with
+Webdocumentaire dans le cadre d'un projet d'école à HETIC 
 
-`cd server`
-`php -S localhost:8000`
+## Installation du projet en local
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##### Cloner le projet
 
-## Available Scripts
+<code>$ git clone https://github.com/Paulehair/php-react.git</code>
 
-In the project directory, you can run:
+##### Lancer le serveur php
 
-### `npm start`
+<code>$ cd php-react/server </code>
+<code>$ php -S localhost:8000 </code>
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##### Lancer le serveur node sur le localhost:3000
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+<code>$ cd php-react/client </code>
+<code>$ npm install </code>
+<code>$ npm start </code>
 
-### `npm test`
+##### /!\ Attention
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Pensez à vérifier la variable d'environnement $URL_API dans le fichier .env pour qu'elle pointe bien vers localhost:8000 si vous travaillez en local
 
-### `npm run build`
+## Fonctionnement et usage
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##### Envoyer la data à l'API
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Chaque fichier php dans le dossier server appelle une table de la base de donnée et renvoie toutes les données en format json.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###### Exemple 
 
-### `npm run eject`
+<code>[
+  {
+    "id": "1",
+    "title_part": "I / L’homme en pleine transformation",
+    "title": "Ces algorithmes qui",
+    "title_span": "détectent les maladies",
+    "subtitle": ""}
+    ]</code>
+    
+##### Recevoir la data depuis l'API
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Dans le fichier /client/src/helpers/api.js des appels sont faits à l'url correspondant à la variable d'environnement (cf /client/.env) $URL_API. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Chaque fonction de type fetch récupère la donnée et la renvoie en json. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Dans chaque composant de type view, une fonction fetch est appelée pour passer la data à son state content.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Architecture technique
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![](https://i.imgur.com/6348jzm.png)
