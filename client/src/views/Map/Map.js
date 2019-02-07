@@ -9,7 +9,7 @@ const Map = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirs
         code = <div className="map" key={currentStep.id}>
             <h1>{currentStep.title}</h1>
             <div className={window.width <= 768 ? 'container' : ''}>
-                <MapArticle changeCurrentStep={changeCurrentStep} currentStep={currentStep} indexToGoFirst={indexToGoFirst}/>
+                <MapArticle changeCurrentStep={changeCurrentStep} currentStep={currentStep} indexToGoFirst={indexToGoFirst} slug={slug} />
             </div>
         </div>
     }

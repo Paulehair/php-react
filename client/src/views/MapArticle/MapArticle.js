@@ -1,4 +1,4 @@
-import React , {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import Slider from 'react-slick';
 import Globe from '../Globe/Globe';
 import { Spring } from 'react-spring'
@@ -20,60 +20,63 @@ const sliderSettings = {
 
 const MapArticle = (
     {
-        content ,
-        isMobile ,
-        changeCurrentStep ,
-        indexToGoFirst ,
-        currentStep ,
-        contentId ,
+        content,
+        isMobile,
+        changeCurrentStep,
+        indexToGoFirst,
+        currentStep,
+        contentId,
         articleOpen,
         dezoom,
         zoom,
         center,
         geoPaths,
         switchPaths,
-        pathId
+        pathId,
+        slug
     }) => {
-    if(content === null){
+    if (content === null) {
         return 'Loading...';
     }
-    
+
     return <div className="map-article">
         {!isMobile ?
             <div className='map-article_container'>
-                <Globe articleOpen={articleOpen} zoom={zoom} center={center} geoPaths={geoPaths} switchPaths={switchPaths} pathId={pathId}/>
+                <Globe articleOpen={articleOpen} zoom={zoom} center={center} geoPaths={geoPaths} switchPaths={switchPaths} pathId={pathId} />
                 <div className="map-discover_text">
-                    <p onClick={!articleOpen ? null : dezoom}>{ !articleOpen ? 'Cliquez sur les points pour découvrir l’histoire' : 'Cliquez ici pour revenir a la carte'}</p>
+                    <p onClick={!articleOpen ? null : dezoom}>{!articleOpen ? 'Cliquez sur les points pour découvrir l’histoire' : 'Cliquez ici pour revenir a la carte'}</p>
                 </div>
                 <div className="map-content">
                     {contentId !== '' &&
-                    <Fragment>
-                        <div className="map-bloc_left">
-                            <h2 className="map-title">{ content[contentId].title }</h2>
-                            <h5 className="map-subtitle">{content[contentId].subtitle}</h5>
-                            <div className="map-text">
-                                <p>{content[contentId].text1}</p>
+                        <Fragment>
+                            <div className="map-bloc_left">
+                                <h2 className="map-title">{content[contentId].title}</h2>
+                                <h5 className="map-subtitle">{content[contentId].subtitle}</h5>
+                                <div className="map-text">
+                                    <p>{content[contentId].text1}</p>
+                                </div>
+                                <div className="map-text">
+                                    <p>{content[contentId].text2}</p>
+                                </div>
                             </div>
-                            <div className="map-text">
-                                <p>{content[contentId].text2}</p>
+                            <div className="map-bloc_right">
+                                <div className="map-media">
+                                    {content[contentId].video !== null ?
+                                        <iframe src={content[contentId].video}></iframe>
+                                        :
+                                        <img src={content[contentId].img} alt="" />
+                                    }
+                                </div>
+                                <div className="map-text">
+                                    <p>{content[contentId].text3}</p>
+                                </div>
+                                <div className="map-button">
+                                    <button onClick={() => changeCurrentStep(indexToGoFirst)} className="button btn-next">{currentStep.first_choice}</button>
+                                    <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
+                                    <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
+                                </div>
                             </div>
-                        </div>
-                        <div className="map-bloc_right">
-                            <div className="map-media">
-                                {content[contentId].video !== null ?
-                                    <iframe src={content[contentId].video}></iframe>
-                                    :
-                                    <img src={content[contentId].img} alt=""/>
-                                }
-                            </div>
-                            <div className="map-text">
-                                <p>{content[contentId].text3}</p>
-                            </div>
-                            <div className="map-button">
-                                <button onClick={() => changeCurrentStep(indexToGoFirst)} className="button btn-next">{currentStep.first_choice}</button>
-                            </div>
-                        </div>
-                    </Fragment>
+                        </Fragment>
                     }
                 </div>
             </div>
@@ -121,6 +124,8 @@ const MapArticle = (
                 </Slider>
                 <div className="map-button">
                     <button onClick={() => changeCurrentStep(indexToGoFirst)} className="button btn-next">{currentStep.first_choice}</button>
+                    <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />
+                    <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
                 </div>
             </div>
         }
