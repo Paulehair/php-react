@@ -17,7 +17,7 @@ const sliderSettings = {
 };
 
 
-const MapArticle = ({ content, isMobile, changeCurrentStep, indexToGoFirst, currentStep }) => {
+const MapArticle = ({ content, isMobile, changeCurrentStep, indexToGoFirst, currentStep, isChecked, handleChecked }) => {
     return content && <div className="map-article">
         {!isMobile ?
             <div>
@@ -57,8 +57,7 @@ const MapArticle = ({ content, isMobile, changeCurrentStep, indexToGoFirst, curr
                                     </div>
                                     {con.text2 !== '' &&
                                         <div className="map-moreContainer">
-                                            <input id="show" className="show" type="checkbox" />
-                                            <label for="show" className="map-moreText">
+                                            <label onClick={handleChecked} className={"map-moreText" + (isChecked ? " active" : "" )}>
                                                 En savoir plus
                                             </label>
                                             <div className="map-more">

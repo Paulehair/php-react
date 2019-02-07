@@ -9,6 +9,7 @@ class MapArticleContainer extends Component {
             content: null,
             sliderIndex: 0,
             isMobile: window.innerWidth <= 768,
+            isChecked: false
         })
         window.scroll(0, 0);
     }
@@ -21,8 +22,15 @@ class MapArticleContainer extends Component {
 
     }
 
+    handleChecked = () => {
+        this.setState(prevState => ({
+            isChecked : !prevState.isChecked
+            })
+        );
+    }
+
     render() {
-        const { content, sliderIndex , isMobile} = this.state;
+        const { content, sliderIndex , isMobile, isChecked } = this.state;
         const {changeCurrentStep , currentStep , indexToGoFirst } = this.props;
         return (
             <MapArticle
@@ -31,6 +39,8 @@ class MapArticleContainer extends Component {
                 isMobile={isMobile}
                 changeCurrentStep={changeCurrentStep}
                 currentStep={currentStep}
+                isChecked={isChecked}
+                handleChecked={this.handleChecked}
                 indexToGoFirst={indexToGoFirst}
             />
         );
