@@ -3,13 +3,35 @@
   background-size: contain;
   height: 100%;
   width: 100%;
-  @media (max-width: $bp-tablet + 1px){
+  @media (min-width: $bp-tablet + 1px){
     height: 100vh;
+    overflow-y: hidden;
+    position: relative;
+    &.articleOpen{
+      overflow-y: scroll;
+      .map-content{
+        transform: translateY(0);
+      }
+    }
   }
-  &-button{
+  &-button {
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    @media (min-width: $bp-tablet + 1px) {
+      justify-content: center;
+    }
+  }
+  &-title{
+    color: $main-color;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 50px;
+  }
+  &-subtitle{
+    font-weight: bold;
+    font-size: 18px;
+    margin: 40px 0 20px;
   }
   .btn-next{
     display: flex;
@@ -21,9 +43,8 @@
     background: $main-color;
     color: $white;
     padding: 20px 30px ;
-    @media (max-width: $bp-tablet){
-      position: static;
-      align-items: center;
+    @media (min-width: $bp-tablet){
+      bottom: 0;
     }
   }
   &-img{
@@ -51,17 +72,73 @@
     border-radius: 50%;
     cursor: pointer;
   }
-  &-content{
+  &-content {
     margin: 85px 0 50px;
+
+    @media (min-width: $bp-tablet + 1px) {
+      margin: 0;
+      transform: translateY(5000px);
+      transition: .5s;
+      display: flex;
+    }
   }
   &-article{
     margin-top: 30px;
+    @media (min-width: $bp-tablet + 1px){
+      margin-top: 100px;
+    }
   }
   &-discover_text{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background: $white;
     color: $black;
     text-align: center;
-    padding: 12px 0;
+    padding: 12px 30px;
     font-size: 20px;
+  }
+  circle{
+    cursor: pointer;
+  }
+  &-bloc{
+    &_left{
+      width: 60%;
+      background: $white;
+      color: $black;
+      padding: 30px 50px;
+      margin-top: 50px;
+      .map-text:first-of-type{
+        margin-bottom: 30px;
+      }
+    }
+    &_right{
+      width: 40%;
+      background: $white;
+      color: $black;
+      padding-bottom: 50px;
+      .map-text{
+        margin: 0 50px ;
+      }
+    }
+  }
+  &-media{
+    padding: 20px;
+    img , iframe{
+      min-height: 300px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-globe{
+    &.isOpen{
+      //display: flex;
+      //justify-content: flex-end;
+      //svg{
+      //  max-width: 50%;
+      //  height: 50%;
+      //}
+    }
   }
 }

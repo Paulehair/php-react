@@ -10,7 +10,7 @@ const Map = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGoFirs
         const currentStep = content[currentStepIndex];
         code = <div className="map" key={currentStep.id}>
             <h1>{currentStep.title}</h1>
-            <div className="container">
+            <div className={window.width <= 768 ? 'container' : ''}>
                 <MapArticle changeCurrentStep={changeCurrentStep} currentStep={currentStep} indexToGoFirst={indexToGoFirst}/>
             </div>
             <input ref={indexToGoFirst} type="hidden" value={currentStep.first_index} />

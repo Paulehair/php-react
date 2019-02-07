@@ -1,4 +1,4 @@
-import React, { Component, createRef, Fragment } from 'react';
+import React, { Component, createRef } from 'react';
 import Map from './Map';
 import { fetchMap } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex } from '../../helpers/helpers';

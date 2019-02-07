@@ -16,7 +16,6 @@ class App extends Component {
   getPosition = (event) => {
     let mouseX = event.clientX
     let mouseY = event.clientY + window.scrollY;
-    console.log(document.body.scrollTop);
 
     const svgCursor = ReactDOM.findDOMNode(this.cursor[0])
     this.applyTransform(svgCursor, mouseX, mouseY)
