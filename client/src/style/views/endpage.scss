@@ -121,3 +121,14 @@
         }
     }
 }
+
+.conclusionContainer {
+    display: block;
+    .conclusion {
+        justify-content: center;
+        width: 100%;
+        .endpage-text {
+            width: 100%;
+        }
+    }
+}

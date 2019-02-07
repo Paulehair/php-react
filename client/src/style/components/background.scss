@@ -145,3 +145,14 @@
 .cls-29 {
     opacity: 0.05;
 }
+
+.main-background {
+    width: 115%;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+
+    @media screen and (min-width: $bp-tablet + 1) {
+        width: 85%;
+    }
+}
