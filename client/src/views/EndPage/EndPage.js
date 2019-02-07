@@ -6,13 +6,13 @@ const EndPage = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGo
     if (content) {
         const currentStep = content[currentStepIndex];
         code =
-            <div key={currentStep.id} className="endpage container">
+            <div key={currentStep.id} className={"endpage container" + (currentStep.id == 2 && " conclusionContainer") }>
 
-                <div className="block">
+                <div className={"block " + (currentStep.id == 2 && "conclusion") }>
                     <h1 className="endpage-title title strong">{currentStep.title}</h1>
                     <p className="endpage-text">{currentStep.text1}</p>
                 </div>
-                <div className="block">
+                <div className={"block " + (currentStep.id == 2 && "conclusion")}>
                     <a onClick={() => changeCurrentStep(indexToGoFirst)} className="cardLink">
                         <div className="cardLink-imgContainer">
                             <img className="cardLink-img" src={`./images/02-endpage/${currentStep.img_1}`} alt="image" />
