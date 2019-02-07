@@ -6,49 +6,28 @@ const EndPage = ({ content, currentStepIndex, changeCurrentStep, slug, indexToGo
     if (content) {
         const currentStep = content[currentStepIndex];
         code =
-            <div key={currentStep.id} className="endpage container">
+            <div key={currentStep.id} className={"endpage container" + (currentStep.id == 2 && " conclusionContainer") }>
 
-                <div className="block">
+                <div className={"block " + (currentStep.id == 2 && "conclusion") }>
                     <h1 className="endpage-title title strong">{currentStep.title}</h1>
                     <p className="endpage-text">{currentStep.text1}</p>
                 </div>
-
-                    {currentStep.slug == "globalpart" ? (
-                        <div className="block">
-                            <a onClick={() => changeCurrentStep(indexToGoFirst)} className="cardLink">
-                                <div className="cardLink-imgContainer">
-                                    <img className="cardLink-img" src="./images/02-endpage/maladie.png" alt="image"/>
-                                </div>
-                                <p className="cardLink-text"><span>{currentStep.first_choice}</span></p>
-                                <h4 className="cardLink-title">{currentStep.cardLink_title1}</h4>
-                            </a>
-                            <a onClick={() => changeCurrentStep(indexToGoSecond)} className="cardLink">
-                                <div className="cardLink-imgContainer">
-                                    <img className="cardLink-img" src="./images/02-endpage/handicap.png" alt="image" />
-                                </div>
-                                <p className="cardLink-text"><span>{currentStep.second_choice}</span></p>
-                                <h4 className="cardLink-title">{currentStep.cardLink_title2}</h4>
-                            </a>
+                <div className={"block " + (currentStep.id == 2 && "conclusion")}>
+                    <a onClick={() => changeCurrentStep(indexToGoFirst)} className="cardLink">
+                        <div className="cardLink-imgContainer">
+                            <img className="cardLink-img" src={`./images/02-endpage/${currentStep.img_1}`} alt="image" />
                         </div>
-                     ) : (
-                        <div className="block">
-                            <a onClick={() => changeCurrentStep(indexToGoFirst)} className="cardLink">
-                                <div className="cardLink-imgContainer">
-                                    <img className="cardLink-img" src="./images/02-endpage/again.png" alt="image" />
-                                </div>
-                                <p className="cardLink-text"><span>{currentStep.first_choice}</span></p>
-                                <h4 className="cardLink-title">{currentStep.cardLink_title1}</h4>
-                            </a>
-                            <a onClick={() => changeCurrentStep(indexToGoSecond)} className="cardLink">
-                                <div className="cardLink-imgContainer">
-                                    <img className="cardLink-img" src="./images/02-endpage/more.png" alt="image" />
-                                </div>
-                                <p className="cardLink-text"><span>{currentStep.second_choice}</span></p>
-                                <h4 className="cardLink-title">{currentStep.cardLink_title2}</h4>
-                            </a>
+                        <p className="cardLink-text"><span>{currentStep.first_choice}</span></p>
+                        <h4 className="cardLink-title">{currentStep.cardLink_title1}</h4>
+                    </a>
+                    <a onClick={() => changeCurrentStep(indexToGoSecond)} className="cardLink">
+                        <div className="cardLink-imgContainer">
+                            <img className="cardLink-img" src={`./images/02-endpage/${currentStep.img_2}`} alt="image" />
                         </div>
-                     )
-                }
+                        <p className="cardLink-text"><span>{currentStep.second_choice}</span></p>
+                        <h4 className="cardLink-title">{currentStep.cardLink_title2}</h4>
+                    </a>
+                </div>
 
                 <input ref={indexToGoFirst} type="hidden" defaultValue={currentStep.first_index} />
                 <input ref={indexToGoSecond} type="hidden" defaultValue={currentStep.second_index} />

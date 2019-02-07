@@ -10,6 +10,7 @@ class IntroductionContainer extends Component {
             animation: false
         });
         this.changeCurrentStep = this.changeCurrentStep.bind(this);
+        window.scroll(0, 0);
     };
 
     slug = createRef();
@@ -36,13 +37,15 @@ class IntroductionContainer extends Component {
     render() {
         const { content, animation } = this.state;
         return (
-            <Introduction
-                content={content}
-                animation={animation}
-                slug={this.slug}
-                indexToGo={this.indexToGo}
-                changeCurrentStep={this.changeCurrentStep}
-            />
+            <div>
+                <Introduction
+                    content={content}
+                    animation={animation}
+                    slug={this.slug}
+                    indexToGo={this.indexToGo}
+                    changeCurrentStep={this.changeCurrentStep}
+                />
+            </div>
         );
     }
 }

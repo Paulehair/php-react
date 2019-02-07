@@ -51,7 +51,7 @@
 
     &-text1 {
         order: 2;
-        margin-bottom: 80px;
+        margin: 80px 0;
 
         @media screen and (min-width: $bp-mobile +1) and (max-width: $bp-desktop) {
             margin-right: 40px;
@@ -60,7 +60,8 @@
 
     &-text2 {
         order: 3;
-        margin-bottom: 60px;
+        margin-bottom: 20px;
+
         @media screen and (min-width: $bp-desktop +1) {
             order: 4;
         }
@@ -69,12 +70,14 @@
     &-quotationContainer {
         order: 5;
         margin: 40px 0;
+
         @media screen and (min-width: $bp-desktop +1) {
             order: 2;
             width: 40%;
             margin: 0;
             margin-left: auto;
         }
+
         @media screen and (max-width: $bp-desktop) {
             text-align: center;
         }
@@ -84,6 +87,7 @@
         font-size: 18px;
         font-weight: 600;
         margin-bottom: 40px;
+        line-height: 36px;
     }
 
     &-source {
@@ -105,8 +109,8 @@
             padding: 40px 40px 100px;
         }
 
-        @media screen and (min-width: $bp-tablet + 1) {
-            margin: 0 -80px;
+        @media screen and (max-width: $bp-tablet + 1) {
+            display: none;
         }
 
         @media screen and (min-width: $bp-desktop +1) {
@@ -115,18 +119,6 @@
             margin: 0;
             margin-left: auto;
             padding: 80px 100px 100px;
-        }
-
-        &::after {
-            position: absolute;
-            content: 'scroll';
-            left: 50%;
-            top: 90%;
-            transform: translateX(-50%) rotate(269deg);
-            color: $lightgrey;
-            font-size: 12px;
-            text-transform: uppercase;
-            animation: scroll 2000ms ease-in-out infinite;
         }
 
         &-dots {
@@ -178,6 +170,25 @@
         @media screen and (min-width: $bp-desktop +1) {
             width: 50%;
             margin: -118px 0 0;
+        }
+        > div {
+            @media screen and (min-width: $bp-desktop +1) {
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    .slick-list {
+        height: 410px;
+        overflow-y: scroll;
+    }
+
+    .slick-dots {
+        bottom: -70px;
+        height: 25px;
+
+        .slick-active .globalpart-slider-dots .dot {
+            background: $dark-blue;
         }
     }
 }

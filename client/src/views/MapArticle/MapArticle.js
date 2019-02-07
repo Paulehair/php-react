@@ -84,18 +84,36 @@ const MapArticle = (
                     {content.map(con => {
                         return (
                             <div className="map-slides" key={con.id}>
-                                <div className="container">
-                                    <div className="map-img">
-                                        <img src={'maps/' + con.img_country + '.svg'} alt={con.img_country}/>
-                                    </div>
+                                <div className="map-img">
+                                    <img src={'maps/' + con.img_country + '.svg'} alt={con.img_country} />
+                                </div>
 
-                                    <div className="map-content">
-                                        <h2 className='title'>{con.title}</h2>
-                                        <h4 className='title strong'>{con.subtitle}</h4>
-                                        <p>{con.text1}</p>
-                                        <p>{con.text2}</p>
-                                        <p>{con.text3}</p>
+                                <div className="map-content">
+                                    <h2 className='map-title title strong'>{con.title}</h2>
+                                    <h4 className='map-subtitle subtitle'>{con.subtitle}</h4>
+                                    <p className="map-text">{con.text1}</p>
+                                    <div className="map-mediaContainer">
+                                        {con.img === null ? (
+                                            <video controls>
+                                                <source src={`${con.video}`} />
+                                            </video>
+                                        ) : (
+                                                <img src={`${con.img}`} alt="" />
+                                            )
+                                        }
                                     </div>
+                                    {con.text2 !== '' &&
+                                        <div className="map-moreContainer">
+                                            <label for="show" className="map-moreText">
+                                                En savoir plus
+                                            </label>
+                                            <input id="show" className="show" type="checkbox" />
+                                            <div className="map-more">
+                                                <p className="map-text">{con.text2}</p>
+                                                <p className="map-text">{con.text3}</p>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         )

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../style/App.scss';
 import Router from './Router';
 import ReactDOM from 'react-dom';
+import Header from './Header';
 import Cursor from './Cursor';
 
 class App extends Component {
@@ -41,6 +42,7 @@ class App extends Component {
     })
     return (
       <div className="App">
+        <Header />
         <Router currentIndex={currentIndex} setIndex={this.setIndex} />
         <Cursor ref={el => el && this.cursor.push(el)} />
       </div>

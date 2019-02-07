@@ -1,21 +1,23 @@
-import React, { Component, createRef, Fragment } from 'react';
+import React, { Component, createRef } from 'react';
 import Article from './Article';
 import { fetchData } from '../../helpers/api';
-import { parseToNumber, pushHistory, setIndex , getStorage , setStorage} from '../../helpers/helpers';
+import { parseToNumber, pushHistory, setIndex, } from '../../helpers/helpers';
+import Background from '../../components/Background';
 
 class ArticleContainer extends Component {
     constructor(props) {
         super(props)
         this.state = ({
             content: null,
-            currentStep: getStorage('articleIndex') || this.props.dataFromApp.currentIndex,
+            currentStep: this.props.dataFromApp.currentIndex,
         })
+        window.scroll(0, 0);
     }
 
     //create reference to get slug inside input hidden in Article.js
     slug = createRef();
     indexToGoFirst = createRef();
-    indexToGoSecond = createRef();
+    //indexToGoSecond = createRef();
 
     //fetch data from server using api.js
     async componentDidMount() {
@@ -23,15 +25,12 @@ class ArticleContainer extends Component {
         this.setState({
             content: data,
         })
-
-        if(this.props.dataFromApp.currentIndex > getStorage('articleIndex') || getStorage('articleIndex') == null){
-            setStorage('articleIndex' , this.props.dataFromApp.currentIndex);
-        }
     }
 
     //function to rederect to right component at the right instance
     changeCurrentStep = (index) => {
         let indexToNumber = parseToNumber(index.current.value);
+        console.log(index.current.value)
         setIndex(this, indexToNumber);
         pushHistory(this, this.slug.current.value);
     };
@@ -40,6 +39,7 @@ class ArticleContainer extends Component {
         const { content, currentStep } = this.state;
         return (
             <div className="page">
+                <Background className="article-background" />
                 <Article
                     content={content}
                     currentStepIndex={currentStep}

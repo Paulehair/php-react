@@ -74,7 +74,7 @@ const Globe = ({articleOpen , zoom , center , geoPaths , switchPaths , pathId}) 
                                         onClick={switchPaths}
                                         key={marker.id}
                                     >
-                                        <circle cx={ 0 } cy={ 0 } r={ 5 } />
+                                        <circle cx={ 0 } cy={ 0 } r={ 5 } className="map-markers"/>
                                     </Marker>
                                 ))}
                             </Markers>

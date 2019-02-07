@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../../components/Header';
 
 const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGoFirst, indexToGoSecond }) => {
     let code;
@@ -8,8 +7,12 @@ const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGo
         const currentStep = content[currentStepIndex];
         code =
             <Fragment>
+                <h3 className="title-part">{currentStep.title_part}</h3>
                 <div className={"article container"} key={currentStep.id}>
-                    <h1 className={"article-title title strong"}>{`${currentStep.title} `}<span>{currentStep.title_span}</span></h1>
+                    <h1 className={"article-title title"}>{`${currentStep.title} `}
+                        <br />
+                        <span className=" strong">{currentStep.title_span}</span>
+                    </h1>
                     <p className={"article-text1"}>{currentStep.text1}</p>
                     <div className="article-imgContainer">
                         <img className={"article-img"} src={`./images/04-article/${currentStep.img}`} alt="" />
@@ -32,14 +35,8 @@ const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGo
                 </div>
                 <div className={"article-btn group-btn"}>
                     <button onClick={() => changeCurrentStep(indexToGoFirst)} className={"button"}>{currentStep.first_choice}</button>
-                    {currentStep.second_choice !== null &&
-                        <Fragment>
-                            <button onClick={() => changeCurrentStep(indexToGoSecond)} className={"button"}>{currentStep.second_choice}</button>
-                        </Fragment>
-                    }
                 </div>
                 <input ref={indexToGoFirst} type="hidden" defaultValue={currentStep.first_index} />
-                <input ref={indexToGoSecond} type="hidden" defaultValue={currentStep.second_index} />
                 <input ref={slug} type="hidden" defaultValue={currentStep.slug} />
             </Fragment>
             ;
@@ -47,6 +44,7 @@ const Article = ({ content, currentStepIndex, slug, changeCurrentStep, indexToGo
 
     return content && (
         <Fragment>
+            <div className="article-background"></div>
             {code}
         </Fragment>
     );

@@ -1,4 +1,4 @@
-import React, { Component, createRef, Fragment } from 'react';
+import React, { Component, createRef } from 'react';
 import GlobalPart from './GlobalPart';
 import { fetchGlobalPart } from '../../helpers/api';
 import { parseToNumber, pushHistory, setIndex, getStorage, setStorage } from '../../helpers/helpers';
@@ -9,9 +9,10 @@ class GlobalPartContainer extends Component {
         super(props)
         this.state = ({
             content: null,
-            currentStep: getStorage('globalPartIndex') || this.props.dataFromApp.currentIndex,
+            currentStep: this.props.dataFromApp.currentIndex,
             slide: false,
         })
+        window.scroll(0, 0);
     }
 
     slug = createRef();
@@ -23,9 +24,6 @@ class GlobalPartContainer extends Component {
         this.setState({
             content: data,
         })
-        if (this.props.dataFromApp.currentIndex > getStorage('globalPartIndex') || getStorage('globalPartIndex') == null) {
-            setStorage('globalPartIndex', this.props.dataFromApp.currentIndex);
-        }
     }
 
     changeCurrentStep = (index) => {
@@ -34,8 +32,11 @@ class GlobalPartContainer extends Component {
         pushHistory(this, this.slug.current.value);
     }
 
-    handleScroll = () => {
+    handleSlide = () => {
         console.log('test');
+        this.setState({
+            slide: true,
+        })
     }
 
     render() {
@@ -50,7 +51,7 @@ class GlobalPartContainer extends Component {
                     slug={this.slug}
                     indexToGoFirst={this.indexToGoFirst}
                     indexToGoSecond={this.indexToGoSecond}
-                    handleScroll={this.handleScroll}
+                    handleSlide={this.handleSlide}
                 />
             </div>
         );

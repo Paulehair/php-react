@@ -1,15 +1,16 @@
-import React, { Component, createRef, Fragment } from 'react';
+import React, { Component, createRef } from 'react';
 import EndPage from './EndPage';
 import { fetchEndpoint } from '../../helpers/api';
-import { parseToNumber, pushHistory, setIndex , getStorage , setStorage} from '../../helpers/helpers';
+import { parseToNumber, pushHistory, setIndex, getStorage, setStorage } from '../../helpers/helpers';
 
 class EndPageContainer extends Component {
     constructor(props) {
         super(props)
         this.state = ({
             content: null,
-            currentStep: getStorage('endPageIndex') || this.props.dataFromApp.currentIndex,
+            currentStep: this.props.dataFromApp.currentIndex,
         })
+        window.scroll(0, 0);
     }
 
     slug = createRef();
@@ -21,10 +22,6 @@ class EndPageContainer extends Component {
         this.setState({
             content: data,
         })
-
-        if(this.props.dataFromApp.currentIndex > getStorage('endPageIndex') || getStorage('endPageIndex') == null){
-            setStorage('endPageIndex' , this.props.dataFromApp.currentIndex);
-        }
     }
 
     changeCurrentStep = (index) => {

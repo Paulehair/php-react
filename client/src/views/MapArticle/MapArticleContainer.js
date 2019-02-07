@@ -20,6 +20,7 @@ class MapArticleContainer extends Component {
             zoom: 1,
             pathId: 0
         })
+        window.scroll(0, 0);
     }
 
     async componentDidMount() {
@@ -32,16 +33,16 @@ class MapArticleContainer extends Component {
     switchPaths = (e) => {
         const { detail , geoPaths } = this.state;
         this.setState({
-            zoom: 60,
+            zoom: 5,
             contentId: e.id,
             articleOpen: true,
-            pathId: e.pathId,
+            center: e.coordinates
         });
         document.querySelector('.map').classList.add('articleOpen');
     };
 
     dezoomMap = () => {
-        this.setState({ zoom: 1 , pathId: 0 , articleOpen: false});
+        this.setState({ zoom: 1 , articleOpen: false , center: [0, 20]});
         document.querySelector('.map').classList.remove('articleOpen');
     };
 
