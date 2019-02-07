@@ -20,6 +20,39 @@
         }
     }
 
+
+    @media screen and (max-width: $bp-mobile) {
+        .cardLink:first-of-type {
+            margin-right: -100px;
+
+            .cardLink-text {
+                text-align: right;
+                margin-right: 20px;
+            }
+
+            .cardLink-title {
+                text-align: right;
+                margin-right: 20px;
+            }
+        }
+
+        .cardLink:last-of-type {
+            margin-left: -100px;
+
+            .cardLink-text {
+                text-align: left;
+                margin-left: 20px;
+            }
+
+            .cardLink-title {
+                text-align: left;
+                margin-left: 20px;
+            }
+        }
+    }
+
+
+
     .block {
         width: 50%;
 
