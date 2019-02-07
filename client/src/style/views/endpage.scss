@@ -14,6 +14,7 @@
         width: 100%;
         background: url(/images/gugus.svg) no-repeat right;
         background-size: 50%;
+        opacity: 0.6;
 
         @media screen and (max-width: $bp-tablet) {
             background: none;
@@ -127,6 +128,7 @@
     .conclusion {
         justify-content: center;
         width: 100%;
+        padding-bottom: 80px;
         .endpage-text {
             width: 100%;
         }
